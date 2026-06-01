@@ -2,6 +2,7 @@
 
 import { LogOut } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
@@ -13,13 +14,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/primitives/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Container, FlexRow } from "@/components/ui/layouts";
+import { FlexRow } from "@/components/ui/layouts";
 import useAuthStore from "@/store/auth";
 
 export default function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const userProfile = useAuthStore((state) => state.userProfile);
+
+  const isHomePage = pathname === "/";
 
   const handleLogout = async () => {
     try {
@@ -41,8 +45,14 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
-      <Container className="py-2">
+    <nav
+      className={`z-50 w-full ${
+        isHomePage
+          ? "absolute top-0 bg-transparent"
+          : "border-b border-gray-200 bg-white"
+      }`}
+    >
+      <div className="w-full px-4 py-2">
         <FlexRow className="items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -70,7 +80,7 @@ export default function Navbar() {
                 <DropdownMenuSeparator />
                 {userProfile?.role === "admin" && (
                   <DropdownMenuItem asChild>
-                    <Link href="/admin/dashboard">Admin Dashboard</Link>
+                    <Link href="/admin">Admin Dashboard</Link>
                   </DropdownMenuItem>
                 )}
                 <DropdownMenuItem asChild>
@@ -89,7 +99,7 @@ export default function Navbar() {
             </Link>
           )}
         </FlexRow>
-      </Container>
+      </div>
     </nav>
   );
 }

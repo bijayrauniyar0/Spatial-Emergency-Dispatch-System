@@ -12,6 +12,165 @@ interface CreateStationRequest {
   zoneGeoJson: Record<string, any>;
 }
 
+export const getStations = async (
+  _req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const stations = await Station.findAll({
+      raw: true,
+    });
+
+    const formattedStations = stations.map((station: any) => ({
+      id: station.id,
+      name: station.name,
+      category: station.category,
+      latitude: station.location?.coordinates?.[1],
+      longitude: station.location?.coordinates?.[0],
+      created_at: station.created_at,
+      updated_at: station.updated_at,
+    }));
+
+    res.status(200).json({
+      message: 'Stations retrieved successfully',
+      data: formattedStations,
+    });
+  } catch (error) {
+    console.error('Error fetching stations:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const getStationsGeoJSON = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { categories } = req.query;
+
+    let where = {};
+    if (categories && typeof categories === 'string' && categories.length > 0) {
+      const categoryList = categories.split(',').map((c) => c.trim());
+      if (categoryList.length > 0) {
+        where = { category: categoryList };
+      }
+    }
+
+    const stations = await Station.findAll({
+      where,
+      raw: true,
+    });
+
+    const features = stations.map((station: any) => ({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [
+          station.location?.coordinates?.[0],
+          station.location?.coordinates?.[1],
+        ],
+      },
+      properties: {
+        id: station.id,
+        name: station.name,
+        category: station.category,
+        created_at: station.created_at,
+        updated_at: station.updated_at,
+      },
+    }));
+
+    res.status(200).json({
+      type: 'FeatureCollection',
+      features,
+    });
+  } catch (error) {
+    console.error('Error fetching stations GeoJSON:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const getZonesGeoJSON = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { categories } = req.query;
+
+    let where = {};
+    if (categories && typeof categories === 'string' && categories.length > 0) {
+      const categoryList = categories.split(',').map((c) => c.trim());
+      if (categoryList.length > 0) {
+        where = { category: categoryList };
+      }
+    }
+
+    const zones = await Zone.findAll({
+      include: [
+        {
+          model: Station,
+          attributes: ['id', 'name', 'category'],
+          where,
+        },
+      ],
+      raw: false,
+    });
+
+    const features = zones.map((zone: any) => {
+      const station = zone.Station;
+      return {
+        type: 'Feature',
+        geometry: zone.boundary,
+        properties: {
+          id: zone.id,
+          station_id: zone.station_id,
+          name: station?.name || 'Unknown',
+          category: station?.category || 'UNKNOWN',
+          created_at: zone.created_at,
+          updated_at: zone.updated_at,
+        },
+      };
+    });
+
+    res.status(200).json({
+      type: 'FeatureCollection',
+      features,
+    });
+  } catch (error) {
+    console.error('Error fetching zones GeoJSON:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
 export const createStation = async (
   req: Request,
   res: Response,

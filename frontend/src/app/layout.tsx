@@ -45,8 +45,8 @@ export default async function RootLayout({
         <QueryProvider>
           <TooltipProvider>
             <AuthInitializer />
-            <Navbar />
-            <main className="h-[calc(100vh-4.25rem)] overflow-hidden">
+            <main className="h-screen overflow-hidden">
+              <Navbar />
               {children}
             </main>
           </TooltipProvider>

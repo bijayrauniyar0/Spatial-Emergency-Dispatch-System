@@ -1,0 +1,903 @@
+[
+  {
+    "name": "Metropolitan Police Circle - Durbar Marg",
+    "category": "POLICE",
+    "latitude": 27.7082,
+    "longitude": 85.3181,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.31, 27.715],
+          [85.31, 27.7],
+          [85.325, 27.7],
+          [85.325, 27.715],
+          [85.31, 27.715]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Metropolitan Police Range - Jawalakhel",
+    "category": "POLICE",
+    "latitude": 27.6734,
+    "longitude": 85.3115,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.3, 27.68],
+          [85.3, 27.665],
+          [85.325, 27.665],
+          [85.325, 27.68],
+          [85.3, 27.68]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Metropolitan Police Range - Bhaktapur",
+    "category": "POLICE",
+    "latitude": 27.6712,
+    "longitude": 85.4284,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.415, 27.68],
+          [85.415, 27.66],
+          [85.44, 27.66],
+          [85.44, 27.68],
+          [85.415, 27.68]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Barun Yantra Karyalaya - New Road",
+    "category": "FIRE",
+    "latitude": 27.7031,
+    "longitude": 85.3112,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.295, 27.71],
+          [85.295, 27.695],
+          [85.32, 27.695],
+          [85.32, 27.71],
+          [85.295, 27.71]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Koteshwor Emergency Fire Station",
+    "category": "FIRE",
+    "latitude": 27.6762,
+    "longitude": 85.3512,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.34, 27.685],
+          [85.34, 27.665],
+          [85.365, 27.665],
+          [85.365, 27.685],
+          [85.34, 27.685]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Maharajgunj Fire Depot",
+    "category": "FIRE",
+    "latitude": 27.7365,
+    "longitude": 85.3312,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.315, 27.745],
+          [85.315, 27.725],
+          [85.345, 27.725],
+          [85.345, 27.745],
+          [85.315, 27.745]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Lalitpur Fire Station - Pulchowk",
+    "category": "FIRE",
+    "latitude": 27.6778,
+    "longitude": 85.3175,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.305, 27.69],
+          [85.305, 27.67],
+          [85.33, 27.67],
+          [85.33, 27.69],
+          [85.305, 27.69]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "TUTH Emergency Response Unit",
+    "category": "MEDICAL",
+    "latitude": 27.7351,
+    "longitude": 85.3302,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.32, 27.74],
+          [85.32, 27.728],
+          [85.34, 27.728],
+          [85.34, 27.74],
+          [85.32, 27.74]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Bir Hospital Trauma Center Hub",
+    "category": "MEDICAL",
+    "latitude": 27.7058,
+    "longitude": 85.3134,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.3, 27.712],
+          [85.3, 27.698],
+          [85.325, 27.698],
+          [85.325, 27.712],
+          [85.3, 27.712]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Patan Hospital Ambulance Fleet",
+    "category": "MEDICAL",
+    "latitude": 27.6685,
+    "longitude": 85.3202,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.31, 27.675],
+          [85.31, 27.658],
+          [85.335, 27.658],
+          [85.335, 27.675],
+          [85.31, 27.675]
+        ]
+      ]
+    }
+  },
+
+  {
+    "name": "District Police Office - Kaski (Pokhara Core)",
+    "category": "POLICE",
+    "latitude": 28.2196,
+    "longitude": 83.9912,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.97, 28.235],
+          [83.97, 28.2],
+          [84.015, 28.2],
+          [84.015, 28.235],
+          [83.97, 28.235]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Lakeside Police Beat - Pokhara",
+    "category": "POLICE",
+    "latitude": 28.2105,
+    "longitude": 83.9578,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.94, 28.225],
+          [83.94, 28.195],
+          [83.97, 28.195],
+          [83.97, 28.225],
+          [83.94, 28.225]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Chitwan (Bharatpur)",
+    "category": "POLICE",
+    "latitude": 27.6792,
+    "longitude": 84.4312,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [84.4, 27.7],
+          [84.4, 27.65],
+          [84.46, 27.65],
+          [84.46, 27.7],
+          [84.4, 27.7]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Rupandehi (Bhairahawa)",
+    "category": "POLICE",
+    "latitude": 27.5015,
+    "longitude": 83.4518,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.42, 27.52],
+          [83.42, 27.48],
+          [83.48, 27.48],
+          [83.48, 27.52],
+          [83.42, 27.52]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Area Police Office - Butwal",
+    "category": "POLICE",
+    "latitude": 27.7006,
+    "longitude": 83.4484,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.42, 27.72],
+          [83.42, 27.68],
+          [83.47, 27.68],
+          [83.47, 27.72],
+          [83.42, 27.72]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Banke (Nepalgunj)",
+    "category": "POLICE",
+    "latitude": 28.0531,
+    "longitude": 81.6164,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [81.59, 28.07],
+          [81.59, 27.03],
+          [81.64, 27.03],
+          [81.64, 28.07],
+          [81.59, 28.07]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Morang (Biratnagar)",
+    "category": "POLICE",
+    "latitude": 26.4525,
+    "longitude": 87.2718,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.24, 26.48],
+          [87.24, 26.42],
+          [87.3, 26.42],
+          [87.3, 26.48],
+          [87.24, 26.48]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Pokhara Fire Brigade HQ",
+    "category": "FIRE",
+    "latitude": 28.2122,
+    "longitude": 83.9875,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.96, 28.24],
+          [83.96, 28.18],
+          [84.02, 28.18],
+          [84.02, 28.24],
+          [83.96, 28.24]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Bharatpur Municipal Fire Sub-Station",
+    "category": "FIRE",
+    "latitude": 27.6835,
+    "longitude": 84.4265,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [84.38, 27.71],
+          [84.38, 27.64],
+          [84.45, 27.64],
+          [84.45, 27.71],
+          [84.38, 27.71]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Birgunj Fire Station",
+    "category": "FIRE",
+    "latitude": 27.0125,
+    "longitude": 84.8765,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [84.84, 27.04],
+          [84.84, 26.98],
+          [84.91, 26.98],
+          [84.91, 27.04],
+          [84.84, 27.04]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Biratnagar Fire Sub-Station",
+    "category": "FIRE",
+    "latitude": 26.461,
+    "longitude": 87.2795,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.25, 26.5],
+          [87.25, 26.41],
+          [87.31, 26.41],
+          [87.31, 26.5],
+          [87.25, 26.5]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Dharan Municipality Fire Department",
+    "category": "FIRE",
+    "latitude": 26.8125,
+    "longitude": 87.2835,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.25, 26.84],
+          [87.25, 26.78],
+          [87.31, 26.78],
+          [87.31, 26.84],
+          [87.25, 26.84]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Hetauda Fire Station",
+    "category": "FIRE",
+    "latitude": 27.4245,
+    "longitude": 85.0322,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.0, 27.45],
+          [85.0, 27.4],
+          [85.06, 27.4],
+          [85.06, 27.45],
+          [85.0, 27.45]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Nepalgunj Municipal Fire Station",
+    "category": "FIRE",
+    "latitude": 28.0575,
+    "longitude": 81.6212,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [81.58, 28.08],
+          [81.58, 28.02],
+          [81.65, 28.02],
+          [81.65, 28.08],
+          [81.58, 28.08]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Manipal Teaching Hospital Emergency (Pokhara)",
+    "category": "MEDICAL",
+    "latitude": 28.2415,
+    "longitude": 83.9932,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.97, 28.26],
+          [83.97, 28.22],
+          [84.02, 28.22],
+          [84.02, 28.26],
+          [83.97, 28.26]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Gandaki Regional Hospital Trauma Hub (Pokhara)",
+    "category": "MEDICAL",
+    "latitude": 28.221,
+    "longitude": 83.991,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.98, 28.23],
+          [83.98, 28.21],
+          [84.01, 28.21],
+          [84.01, 28.23],
+          [83.98, 28.23]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Chitwan Medical College (CMC) ER",
+    "category": "MEDICAL",
+    "latitude": 27.6742,
+    "longitude": 84.4354,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [84.41, 27.69],
+          [84.41, 27.65],
+          [84.46, 27.65],
+          [84.46, 27.69],
+          [84.41, 27.69]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Lumbini Provincial Hospital ER (Butwal)",
+    "category": "MEDICAL",
+    "latitude": 27.7022,
+    "longitude": 83.4542,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.43, 27.715],
+          [83.43, 27.685],
+          [83.47, 27.685],
+          [83.47, 27.715],
+          [83.43, 27.715]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Bheri Hospital Emergency Hub (Nepalgunj)",
+    "category": "MEDICAL",
+    "latitude": 28.0512,
+    "longitude": 81.6135,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [81.59, 28.065],
+          [81.59, 28.035],
+          [81.63, 28.035],
+          [81.63, 28.065],
+          [81.59, 28.065]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Koshi Hospital Trauma Center (Biratnagar)",
+    "category": "MEDICAL",
+    "latitude": 26.4578,
+    "longitude": 87.2745,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.25, 26.475],
+          [87.25, 26.435],
+          [87.29, 26.435],
+          [87.29, 26.475],
+          [87.25, 26.475]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Parsa (Birgunj Core)",
+    "category": "POLICE",
+    "latitude": 27.0142,
+    "longitude": 84.8781,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [84.85, 27.035],
+          [84.85, 26.995],
+          [84.91, 26.995],
+          [84.91, 27.035],
+          [84.85, 27.035]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Jhapa (Chandragadhi)",
+    "category": "POLICE",
+    "latitude": 26.5542,
+    "longitude": 88.0645,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [88.03, 26.58],
+          [88.03, 26.53],
+          [88.09, 26.53],
+          [88.09, 26.58],
+          [88.03, 26.58]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Area Police Office - Itahari Hub",
+    "category": "POLICE",
+    "latitude": 26.6668,
+    "longitude": 87.2721,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.24, 26.69],
+          [87.24, 26.64],
+          [87.3, 26.64],
+          [87.3, 26.69],
+          [87.24, 26.69]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Dang (Ghorahi)",
+    "category": "POLICE",
+    "latitude": 28.0642,
+    "longitude": 82.4854,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [82.45, 28.09],
+          [82.45, 28.03],
+          [82.52, 28.03],
+          [82.52, 28.09],
+          [82.45, 28.09]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Kailali (Dhangadhi)",
+    "category": "POLICE",
+    "latitude": 28.6854,
+    "longitude": 80.6087,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [80.57, 28.71],
+          [80.57, 28.65],
+          [80.64, 28.65],
+          [80.64, 28.71],
+          [80.57, 28.71]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "District Police Office - Kanchanpur (Mahendranagar)",
+    "category": "POLICE",
+    "latitude": 28.9641,
+    "longitude": 80.1712,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [80.13, 28.99],
+          [80.13, 28.93],
+          [80.21, 28.93],
+          [80.21, 28.99],
+          [80.13, 28.99]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Area Police Office - Kohalpur Junction",
+    "category": "POLICE",
+    "latitude": 28.1925,
+    "longitude": 81.6884,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [81.65, 28.22],
+          [81.65, 28.16],
+          [81.72, 28.16],
+          [81.72, 28.22],
+          [81.65, 28.22]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Bhairahawa Municipal Fire Station",
+    "category": "FIRE",
+    "latitude": 27.5065,
+    "longitude": 83.4562,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.42, 27.53],
+          [83.42, 27.47],
+          [83.49, 27.47],
+          [83.49, 27.53],
+          [83.42, 27.53]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Butwal Sub-Metropolitan Fire Depot",
+    "category": "FIRE",
+    "latitude": 27.7042,
+    "longitude": 83.451,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [83.41, 27.73],
+          [83.41, 27.67],
+          [83.49, 27.67],
+          [83.49, 27.73],
+          [83.41, 27.73]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Itahari Municipal Fire Sub-Station",
+    "category": "FIRE",
+    "latitude": 26.6685,
+    "longitude": 87.2764,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.23, 26.7],
+          [87.23, 26.63],
+          [87.32, 26.63],
+          [87.32, 26.7],
+          [87.23, 26.7]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Damak Fire Station - Jhapa",
+    "category": "FIRE",
+    "latitude": 26.6689,
+    "longitude": 87.6892,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.65, 26.7],
+          [87.65, 26.63],
+          [87.73, 26.63],
+          [87.73, 26.7],
+          [87.65, 26.7]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Janakpurdham Sub-Metropolitan Fire Unit",
+    "category": "FIRE",
+    "latitude": 26.7296,
+    "longitude": 85.9262,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.89, 26.76],
+          [85.89, 26.69],
+          [85.96, 26.69],
+          [85.96, 26.76],
+          [85.89, 26.76]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Dhangadhi Municipal Fire Department",
+    "category": "FIRE",
+    "latitude": 28.6895,
+    "longitude": 80.6122,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [80.57, 28.72],
+          [80.57, 28.65],
+          [80.65, 28.65],
+          [80.65, 28.72],
+          [80.57, 28.72]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Tulsipur Fire Depot - Dang",
+    "category": "FIRE",
+    "latitude": 28.1312,
+    "longitude": 82.2965,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [82.26, 28.16],
+          [82.26, 28.1],
+          [82.33, 28.1],
+          [82.33, 28.16],
+          [82.26, 28.16]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "National Medical College ER (Birgunj)",
+    "category": "MEDICAL",
+    "latitude": 27.021,
+    "longitude": 84.8985,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [84.87, 27.04],
+          [84.87, 27.0],
+          [84.93, 27.0],
+          [84.93, 27.04],
+          [84.87, 27.04]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "B.P. Koirala Institute of Health Sciences (BPKIHS) - Dharan",
+    "category": "MEDICAL",
+    "latitude": 26.8152,
+    "longitude": 87.2941,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.26, 26.84],
+          [87.26, 26.78],
+          [87.33, 26.78],
+          [87.33, 26.84],
+          [87.26, 26.84]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Provincial Hospital Janakpur Emergency Hub",
+    "category": "MEDICAL",
+    "latitude": 26.7321,
+    "longitude": 85.9298,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [85.9, 26.755],
+          [85.9, 26.705],
+          [85.96, 26.705],
+          [85.96, 26.755],
+          [85.9, 26.755]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Nobel Medical College Emergency Trauma (Biratnagar)",
+    "category": "MEDICAL",
+    "latitude": 26.4742,
+    "longitude": 87.2925,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [87.26, 26.5],
+          [87.26, 26.45],
+          [87.32, 26.45],
+          [87.32, 26.5],
+          [87.26, 26.5]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Seti Provincial Hospital Trauma ER (Dhangadhi)",
+    "category": "MEDICAL",
+    "latitude": 28.6872,
+    "longitude": 80.6062,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [80.57, 28.71],
+          [80.57, 28.66],
+          [80.64, 28.66],
+          [80.64, 28.71],
+          [80.57, 28.71]
+        ]
+      ]
+    }
+  },
+  {
+    "name": "Rapti Provincial Hospital ER (Tulsipur)",
+    "category": "MEDICAL",
+    "latitude": 28.1285,
+    "longitude": 82.2912,
+    "zoneGeoJson": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [82.26, 28.15],
+          [82.26, 28.1],
+          [82.32, 28.1],
+          [82.32, 28.15],
+          [82.26, 28.15]
+        ]
+      ]
+    }
+  }
+]

@@ -47,7 +47,7 @@ export default function MapTools({
   };
 
   return (
-    <div className="absolute top-6 left-3 flex w-fit translate-x-0 flex-row items-start gap-2 duration-200 ease-in-out">
+    <div className="absolute right-3 bottom-6 flex w-fit translate-x-0 flex-row items-start gap-2 duration-200 ease-in-out">
       <FlexColumn className="z-20 items-end gap-3">
         <button
           title="Base Layers"
@@ -60,6 +60,7 @@ export default function MapTools({
           onClick={() => {
             handleActiveTab("base_layers");
           }}
+          type="button"
         >
           <Layers width={20} height={20} className="text-blue-500" />
         </button>
@@ -71,6 +72,7 @@ export default function MapTools({
             onClick={() => {
               map?.zoomIn();
             }}
+            type="button"
           >
             <Plus width={20} height={20} className="text-blue-500" />
           </button>
@@ -80,6 +82,7 @@ export default function MapTools({
             onClick={() => {
               map?.zoomOut();
             }}
+            type="button"
           >
             <Minus width={20} height={20} className="text-blue-500" />
           </button>

@@ -1,9 +1,7 @@
 "use client";
 
-import { Map, NavigationControl, RequestParameters } from "maplibre-gl";
+import { Map, NavigationControl } from "maplibre-gl";
 import { useEffect, useState } from "react";
-
-import { BASE_URL } from "@/constants";
 
 import { IMapOptions, MapInstanceType } from "../types";
 
@@ -26,17 +24,6 @@ export default function useMapLibreGLMap({
       center: [0, 0],
       zoom: 1,
       attributionControl: false,
-      transformRequest: (url): RequestParameters => {
-        const request: RequestParameters = {
-          url,
-        };
-
-        if (url.includes(BASE_URL || "")) {
-          request.credentials = "include";
-        }
-
-        return request;
-      },
       ...mapOptions,
     });
 
