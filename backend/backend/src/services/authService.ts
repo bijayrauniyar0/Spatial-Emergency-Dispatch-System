@@ -7,7 +7,6 @@ export const findOrCreateGoogleUser = async (googleData: any) => {
     user = await User.create({
       name: googleData.name,
       email: googleData.email,
-      avatar: googleData.picture,
       password: null,
       verified: true,
       oauth_provider: 'google',

@@ -2,7 +2,6 @@
 import { Request, Response } from 'express';
 import User from '../models/userModels';
 import bcrypt from 'bcryptjs';
-import { AzureBlobService } from '../services/azureBlobService';
 
 export const getUserProfile = async (
   req: Request,
@@ -13,7 +12,7 @@ export const getUserProfile = async (
     const userData = await User.findOne({
       where: { id: user.id },
       attributes: {
-        exclude: ['password', 'created_at', 'updated_at', 'blob_name'],
+        exclude: ['password', 'created_at', 'updated_at'],
       },
     });
     res.status(200).json(userData);
@@ -38,7 +37,6 @@ export const getPublicUserProfileById = async (
           'verified',
           'created_at',
           'updated_at',
-          'blob_name',
         ],
       },
     });
@@ -56,36 +54,7 @@ export const updateUser = async (req: Request, res: Response): Promise<any> => {
       return res.status(404).json({ message: 'User not found' });
     }
     const { password, old_password, ...restValues } = req.body;
-    const { file } = req;
-    let fileResponse;
 
-    // If there's a file, try to upload it to Azure
-    if (file) {
-      const azureService = new AzureBlobService();
-      if (user.blob_name) {
-        try {
-          await azureService.deleteBlob(user.blob_name);
-        } catch {
-          res.status(500).json({
-            message: 'Error updating profile picture',
-          });
-          return;
-        }
-      }
-
-      const filePath = file.path;
-      const blobName = `users/${Date.now()}-${file.originalname}`;
-
-      try {
-        const url = await azureService.uploadProfilePic(filePath, blobName);
-        fileResponse = { url, blobName };
-      } catch (error) {
-        return res.status(500).json({
-          message: 'Error uploading file to Azure Blob Storage',
-          error,
-        });
-      }
-    }
     if ((old_password || password) && (!old_password || !password)) {
       return res.status(400).json({
         message:
@@ -98,11 +67,6 @@ export const updateUser = async (req: Request, res: Response): Promise<any> => {
         return res.status(401).json({ message: 'Invalid old password' });
       }
       user.password = bcrypt.hashSync(password, 10); // Hash new password
-    }
-
-    if (fileResponse) {
-      restValues.avatar = fileResponse.url;
-      restValues.blob_name = fileResponse.blobName;
     }
 
     if (Object.keys(restValues).length > 0) {

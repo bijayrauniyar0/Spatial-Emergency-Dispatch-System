@@ -901,11 +901,9 @@ CREATE TABLE public.users (
     email character varying(255) NOT NULL,
     password character varying(255),
     number character varying(255),
-    bio character varying(255),
-    avatar character varying(255),
-    blob_name character varying(255),
     oauth_provider public.enum_users_oauth_provider DEFAULT 'local'::public.enum_users_oauth_provider NOT NULL,
     verified boolean DEFAULT false NOT NULL,
+    role character varying DEFAULT 'citizen' NOT NULL,
     created_at timestamp with time zone NOT NULL,
     updated_at timestamp with time zone NOT NULL
 );

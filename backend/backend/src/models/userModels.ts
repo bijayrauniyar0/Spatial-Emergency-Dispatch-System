@@ -9,12 +9,9 @@ class User extends Model {
   public email!: string;
   public password!: string;
   public number!: string;
-  public bio!: string;
-  public avatar!: string;
   public verified!: boolean;
   public oauth_provider!: string;
-  public blob_name!: string;
-  public role!: 'user' | 'superadmin';
+  public role!: 'admin' | 'responder' | 'citizen';
   public created_at!: Date;
 }
 
@@ -42,18 +39,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    bio: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    avatar: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    blob_name: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     oauth_provider: {
       type: DataTypes.ENUM('local', 'google'),
       allowNull: false,
@@ -65,9 +50,9 @@ User.init(
       defaultValue: false,
     },
     role: {
-      type: DataTypes.ENUM('user', 'superadmin'),
+      type: DataTypes.ENUM('admin', 'responder', 'citizen'),
       allowNull: false,
-      defaultValue: 'user',
+      defaultValue: 'citizen',
     },
   },
   {

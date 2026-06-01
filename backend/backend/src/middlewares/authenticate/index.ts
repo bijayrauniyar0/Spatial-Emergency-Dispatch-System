@@ -73,13 +73,13 @@ export const maybeAuthenticate = async (
   next(); // Always continue to controller
 };
 
-export const isSuperAdmin = (
+export const isAdmin = (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
-  if (!req.user || req.user.role !== 'superadmin') {
-    res.status(403).json({ message: 'Access denied: Superadmin role required' });
+  if (!req.user || req.user.role !== 'admin') {
+    res.status(403).json({ message: 'Access denied: Admin role required' });
     return;
   }
   next();
