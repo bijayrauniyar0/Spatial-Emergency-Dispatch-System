@@ -1,0 +1,4 @@
+.vercel
+.env
+docker-compose.override.yml
+**/docker-compose.yml

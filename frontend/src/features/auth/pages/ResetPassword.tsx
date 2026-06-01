@@ -1,0 +1,111 @@
+"use client";
+import { useParams, useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { Button } from "@/components/ui/button";
+import ErrorMessage from "@/components/ui/ErrorMessage";
+import { Label } from "@/components/ui/form";
+import PasswordInput from "@/components/ui/form/password-input";
+import { FlexColumn } from "@/components/ui/layouts";
+import { authResource, ResetPasswordPayload } from "@/features/auth/services";
+import { resetPasswordValidation } from "@/features/auth/validations";
+
+const defaultValues = {
+  password: "",
+  confirmPassword: "",
+  // keepSignedIn: false,
+};
+
+export default function ResetPassword() {
+  const router = useRouter();
+  const { token } = useParams();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues,
+    resolver: zodResolver(resetPasswordValidation),
+  });
+
+  const { mutate, isPending } = authResource.useApiMutation<ResetPasswordPayload>({
+    pathKey: "resetPassword",
+    options: {
+      onSuccess: () => {
+        toast.success("Password reset successful. Please login.");
+        router.push("/login");
+      },
+      onError: (error: any) => {
+        const caughtError =
+          error?.response?.data?.message || "Something went wrong. Please try again.";
+        toast.error(caughtError);
+      },
+    },
+  });
+
+  const onSubmit = (data: Record<string, any>) => {
+    const { password } = data;
+    const payload = {
+      password,
+      token,
+    };
+    mutate(payload);
+  };
+
+  return (
+    <div className="h-full">
+      <div className="grid h-full place-items-center">
+        <div className="login-form w-full overflow-hidden p-7 text-center sm:min-w-[25.25rem] sm:px-12 lg:px-16">
+          <p className="text-primary text-5xl font-semibold select-none">
+            MockSewa
+          </p>
+          <form onSubmit={handleSubmit(onSubmit)} className="pt-12 pb-8">
+            <FlexColumn className="relative mb-2 md:mb-3">
+              <Label htmlFor="password" className="mb-1 text-xs">
+                Password
+              </Label>
+              <PasswordInput
+                id="password"
+                className="w-[4/5] pr-10"
+                placeholder="Enter Password"
+                {...register("password", { required: "Password is Required" })}
+              />
+
+              {errors?.password?.message && (
+                <ErrorMessage message={errors.password.message} />
+              )}
+            </FlexColumn>
+            <FlexColumn className="relative mb-2 md:mb-3">
+              <Label htmlFor="password" className="mb-1 text-xs">
+                Confirm Password
+              </Label>
+              <PasswordInput
+                id="password"
+                className="w-[4/5] pr-10"
+                placeholder="Enter Confirm Password"
+                {...register("confirmPassword", {
+                  required: "Password is Required",
+                })}
+              />
+
+              {errors?.confirmPassword?.message && (
+                <ErrorMessage message={errors.confirmPassword.message} />
+              )}
+            </FlexColumn>
+            <Button
+              className="mt-6 w-full p-3 md:mt-10"
+              disabled={isPending}
+              type="submit"
+            >
+              Reset
+            </Button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}

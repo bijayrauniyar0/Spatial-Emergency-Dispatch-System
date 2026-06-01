@@ -1,0 +1,1857 @@
+{
+  "exams": [
+    { "id": 1, "name": "Loksewa Aayog" },
+    { "id": 2, "name": "Shikshak Sewa Aayog" },
+    { "id": 3, "name": "Banking Exams" }
+  ],
+  "categories": [
+    { "id": 1, "exam_id": 1, "name": "Kharidar (Non-Gazetted 2nd Class)" },
+    { "id": 2, "exam_id": 1, "name": "Nayab Subba (Non-Gazetted 1st Class)" },
+    { "id": 3, "exam_id": 1, "name": "Section Officer (Gazetted 3rd Class)" },
+    { "id": 4, "exam_id": 2, "name": "Primary Level" },
+    { "id": 5, "exam_id": 2, "name": "Lower Secondary Level" },
+    { "id": 6, "exam_id": 2, "name": "Secondary Level" },
+    { "id": 7, "exam_id": 3, "name": "NRB Assistant Second" },
+    { "id": 8, "exam_id": 3, "name": "RBB Assistant Level 4" },
+    { "id": 9, "exam_id": 3, "name": "Bank Officer Level 6" }
+  ],
+  "subjects": [
+    { "id": 1, "name": "General Knowledge & IQ" },
+    { "id": 2, "name": "Mathematics" },
+    { "id": 3, "name": "Banking & Act" },
+    { "id": 4, "name": "Education & Pedagogy" }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "category_id": 1,
+      "subject_id": 1,
+      "name": "Household Arithmetic (Electricity/Water Bills)"
+    },
+    {
+      "id": 2,
+      "category_id": 2,
+      "subject_id": 1,
+      "name": "Unitary Method & Simple Interest"
+    },
+    {
+      "id": 3,
+      "category_id": 3,
+      "subject_id": 2,
+      "name": "Geography of Nepal & Climate Change"
+    },
+    {
+      "id": 4,
+      "category_id": 4,
+      "subject_id": 4,
+      "name": "International Relations and SAARC"
+    },
+    {
+      "id": 5,
+      "category_id": 5,
+      "subject_id": 4,
+      "name": "Nepal Rastra Bank Act, 2058"
+    },
+    {
+      "id": 6,
+      "category_id": 6,
+      "subject_id": 2,
+      "name": "Banking Concept & Deposit Accounts"
+    },
+    {
+      "id": 7,
+      "category_id": 7,
+      "subject_id": 3,
+      "name": "Compound Interest & Depreciation"
+    },
+    {
+      "id": 8,
+      "category_id": 8,
+      "subject_id": 3,
+      "name": "Child Psychology & Learning Theories"
+    },
+    {
+      "id": 9,
+      "category_id": 9,
+      "subject_id": 1,
+      "name": "Curriculum Framework & ICT in Education"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "If an electricity meter reading increases by 45 units and the rate is Rs. 12 per unit, find the total cost.",
+      "options": {
+        "A": "Rs. 540",
+        "B": "Rs. 450",
+        "C": "Rs. 600",
+        "D": "Rs. 500"
+      },
+      "correct_answer": "A",
+      "explanation": "$45 \\times 12 = 540$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "A water bill includes a minimum charge of Rs. 100 for 10 units. If a household uses 15 units at Rs. 20 for extra units, what is the bill?",
+      "options": {
+        "A": "Rs. 200",
+        "B": "Rs. 300",
+        "C": "Rs. 150",
+        "D": "Rs. 250"
+      },
+      "correct_answer": "A",
+      "explanation": "$100 + (5 \\times 20) = 200$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 3,
+      "question": "Calculate the average of household expenses: Electricity (Rs. 1200), Water (Rs. 400), and Internet (Rs. 1400).",
+      "options": {
+        "A": "Rs. 1000",
+        "B": "Rs. 1200",
+        "C": "Rs. 1100",
+        "D": "Rs. 900"
+      },
+      "correct_answer": "A",
+      "explanation": "$\\frac{1200+400+1400}{3} = 1000$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "A person spends $\\frac{1}{4}$ of their income on rent and $\\frac{1}{2}$ on food. What fraction is left?",
+      "options": {
+        "A": "$\\frac{1}{4}$",
+        "B": "$\\frac{1}{3}$",
+        "C": "$\\frac{1}{2}$",
+        "D": "$\\frac{3}{4}$"
+      },
+      "correct_answer": "A",
+      "explanation": "$1 - (\\frac{1}{4} + \\frac{1}{2}) = \\frac{1}{4}$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question": "If daily wages increase by 10% from Rs. 800, what is the new wage?",
+      "options": {
+        "A": "Rs. 880",
+        "B": "Rs. 900",
+        "C": "Rs. 810",
+        "D": "Rs. 850"
+      },
+      "correct_answer": "A",
+      "explanation": "$800 \\times 1.1 = 880$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "Find the ratio of a Rs. 5000 income to Rs. 2000 savings.",
+      "options": { "A": "5:2", "B": "2:5", "C": "3:2", "D": "5:3" },
+      "correct_answer": "A",
+      "explanation": "$5000:2000 = 5:2$",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 7,
+      "question": "A room requires 4 liters of paint. If 1 liter costs Rs. 450, total cost is?",
+      "options": {
+        "A": "Rs. 1800",
+        "B": "Rs. 1600",
+        "C": "Rs. 2000",
+        "D": "Rs. 1700"
+      },
+      "correct_answer": "A",
+      "explanation": "$4 \\times 450 = 1800$",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 8,
+      "question": "If a family of 5 consumes 10kg rice in 4 days, how much is needed for 1 day?",
+      "options": { "A": "2.5kg", "B": "2kg", "C": "3kg", "D": "1.5kg" },
+      "correct_answer": "A",
+      "explanation": "$10 / 4 = 2.5$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "Find the total interest on a Rs. 5000 loan at 5% simple interest for 1 year.",
+      "options": {
+        "A": "Rs. 250",
+        "B": "Rs. 500",
+        "C": "Rs. 100",
+        "D": "Rs. 25"
+      },
+      "correct_answer": "A",
+      "explanation": "$5000 \\times 0.05 = 250$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "A taxi charges Rs. 50 flat and Rs. 20 per km. Cost for 10km?",
+      "options": {
+        "A": "Rs. 250",
+        "B": "Rs. 200",
+        "C": "Rs. 300",
+        "D": "Rs. 150"
+      },
+      "correct_answer": "A",
+      "explanation": "$50 + (10 \\times 20) = 250$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+
+    {
+      "id": 11,
+      "question": "An item bought for Rs. 2000 is sold for Rs. 2500. Profit percentage?",
+      "options": { "A": "25%", "B": "20%", "C": "30%", "D": "15%" },
+      "correct_answer": "A",
+      "explanation": "$\\frac{500}{2000} \\times 100 = 25\\%$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 12,
+      "question": "Find the single discount equivalent to two successive discounts of 10% and 10%.",
+      "options": { "A": "19%", "B": "20%", "C": "18%", "D": "21%" },
+      "correct_answer": "A",
+      "explanation": "$10+10 - \\frac{10 \\times 10}{100} = 19\\%$",
+      "media_type": "math",
+      "difficulty": "hard"
+    },
+    {
+      "id": 13,
+      "question": "If CP is Rs. 900 and loss is 10%, find SP.",
+      "options": {
+        "A": "Rs. 810",
+        "B": "Rs. 800",
+        "C": "Rs. 820",
+        "D": "Rs. 850"
+      },
+      "correct_answer": "A",
+      "explanation": "$900 \\times 0.9 = 810$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 14,
+      "question": "By selling an article for Rs. 600, a man loses 20%. To gain 20%, SP must be?",
+      "options": {
+        "A": "Rs. 900",
+        "B": "Rs. 800",
+        "C": "Rs. 750",
+        "D": "Rs. 1000"
+      },
+      "correct_answer": "A",
+      "explanation": "$CP = 600/0.8 = 750$; $New SP = 750 \\times 1.2 = 900$",
+      "media_type": "math",
+      "difficulty": "hard"
+    },
+    {
+      "id": 15,
+      "question": "A shopkeeper marks his goods 20% above CP and allows a 10% discount. Profit?",
+      "options": { "A": "8%", "B": "10%", "C": "12%", "D": "5%" },
+      "correct_answer": "A",
+      "explanation": "$1.20 \\times 0.90 = 1.08 \\implies 8\\%$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 16,
+      "question": "What is the discount amount on a Rs. 1500 book at 15% off?",
+      "options": {
+        "A": "Rs. 225",
+        "B": "Rs. 250",
+        "C": "Rs. 200",
+        "D": "Rs. 150"
+      },
+      "correct_answer": "A",
+      "explanation": "$1500 \\times 0.15 = 225$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 17,
+      "question": "If 5 items cost Rs. 150, what is the CP of 12 items?",
+      "options": {
+        "A": "Rs. 360",
+        "B": "Rs. 300",
+        "C": "Rs. 400",
+        "D": "Rs. 350"
+      },
+      "correct_answer": "A",
+      "explanation": "$\\frac{150}{5} \\times 12 = 360$",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 18,
+      "question": "Profit is Rs. 40, SP is Rs. 200. Find CP.",
+      "options": {
+        "A": "Rs. 160",
+        "B": "Rs. 240",
+        "C": "Rs. 180",
+        "D": "Rs. 220"
+      },
+      "correct_answer": "A",
+      "explanation": "$200 - 40 = 160$",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 19,
+      "question": "A man buys 10 apples for Rs. 100 and sells 8 for Rs. 100. Profit %?",
+      "options": { "A": "25%", "B": "20%", "C": "15%", "D": "30%" },
+      "correct_answer": "A",
+      "explanation": "$\\frac{10-8}{8} \\times 100 = 25\\%$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 20,
+      "question": "VAT is usually calculated on which price?",
+      "options": {
+        "A": "Selling Price",
+        "B": "Cost Price",
+        "C": "Marked Price",
+        "D": "Discount Price"
+      },
+      "correct_answer": "A",
+      "explanation": "VAT is applied to the final selling price.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+
+    {
+      "id": 21,
+      "question": "How many fundamental duties are mentioned in the Constitution of Nepal?",
+      "options": { "A": "4", "B": "5", "C": "6", "D": "3" },
+      "correct_answer": "A",
+      "explanation": "Article 48 lists 4 fundamental duties of citizens.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 22,
+      "question": "Who is the head of the Constitutional Council?",
+      "options": {
+        "A": "Prime Minister",
+        "B": "Chief Justice",
+        "C": "President",
+        "D": "Speaker"
+      },
+      "correct_answer": "A",
+      "explanation": "The PM chairs the Constitutional Council.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 23,
+      "question": "How many members are in the House of Representatives?",
+      "options": { "A": "275", "B": "265", "C": "165", "D": "110" },
+      "correct_answer": "A",
+      "explanation": "165 (Direct) + 110 (Proportional) = 275.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 24,
+      "question": "Which article deals with the appointment of the Prime Minister?",
+      "options": {
+        "A": "Article 76",
+        "B": "Article 75",
+        "C": "Article 77",
+        "D": "Article 80"
+      },
+      "correct_answer": "A",
+      "explanation": "Article 76 outlines the PM appointment process.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 25,
+      "question": "The tenure of the National Assembly members is how many years?",
+      "options": {
+        "A": "6 years",
+        "B": "5 years",
+        "C": "4 years",
+        "D": "2 years"
+      },
+      "correct_answer": "A",
+      "explanation": "National Assembly is a permanent house with 6-year terms.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 26,
+      "question": "Who appoints the Chief Justice on the recommendation of the Constitutional Council?",
+      "options": {
+        "A": "President",
+        "B": "Prime Minister",
+        "C": "Speaker",
+        "D": "Law Minister"
+      },
+      "correct_answer": "A",
+      "explanation": "Article 129 states the President appoints the CJ.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 27,
+      "question": "How many provinces are there in Nepal?",
+      "options": { "A": "7", "B": "5", "C": "14", "D": "6" },
+      "correct_answer": "A",
+      "explanation": "The current constitution defines 7 provinces.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 28,
+      "question": "What is the retirement age for a Supreme Court judge?",
+      "options": { "A": "65", "B": "63", "C": "60", "D": "58" },
+      "correct_answer": "A",
+      "explanation": "Article 129(8) sets the age at 65.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 29,
+      "question": "In which year was the current Constitution of Nepal promulgated?",
+      "options": {
+        "A": "2072 BS",
+        "B": "2063 BS",
+        "C": "2047 BS",
+        "D": "2015 BS"
+      },
+      "correct_answer": "A",
+      "explanation": "Asoj 3, 2072 BS.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 30,
+      "question": "Who can initiate an impeachment motion against the President?",
+      "options": {
+        "A": "One-fourth of Parliament",
+        "B": "Prime Minister",
+        "C": "Chief Justice",
+        "D": "Speaker"
+      },
+      "correct_answer": "A",
+      "explanation": "Requires 1/4th of members to move the motion.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+
+    {
+      "id": 31,
+      "question": "Who is known as the father of Psychology?",
+      "options": {
+        "A": "Wilhelm Wundt",
+        "B": "Sigmund Freud",
+        "C": "William James",
+        "D": "John Watson"
+      },
+      "correct_answer": "A",
+      "explanation": "Established the first psychology lab in 1879.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 32,
+      "question": "According to Piaget, 'Object Permanence' develops in which stage?",
+      "options": {
+        "A": "Sensorimotor",
+        "B": "Pre-operational",
+        "C": "Concrete",
+        "D": "Formal"
+      },
+      "correct_answer": "A",
+      "explanation": "Usually develops around 8-12 months.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 33,
+      "question": "What is the IQ range for 'Average' intelligence?",
+      "options": { "A": "90-110", "B": "70-80", "C": "120-140", "D": "140+" },
+      "correct_answer": "A",
+      "explanation": "Standard Bell curve range.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 34,
+      "question": "Which hormone is often called the 'stress hormone'?",
+      "options": {
+        "A": "Cortisol",
+        "B": "Dopamine",
+        "C": "Serotonin",
+        "D": "Insulin"
+      },
+      "correct_answer": "A",
+      "explanation": "Released during the 'fight or flight' response.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 35,
+      "question": "Who proposed the 'Hierarchy of Needs'?",
+      "options": {
+        "A": "Abraham Maslow",
+        "B": "Carl Rogers",
+        "C": "B.F. Skinner",
+        "D": "Erik Erikson"
+      },
+      "correct_answer": "A",
+      "explanation": "Psychological health based on fulfilling innate human needs.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 36,
+      "question": "Adolescence is defined as the age of 'Storm and Stress' by whom?",
+      "options": {
+        "A": "G. Stanley Hall",
+        "B": "Jean Rousseau",
+        "C": "Elizabeth Hurlock",
+        "D": "Piaget"
+      },
+      "correct_answer": "A",
+      "explanation": "Hall is the pioneer of adolescent studies.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 37,
+      "question": "Which part of the brain is responsible for balance?",
+      "options": {
+        "A": "Cerebellum",
+        "B": "Cerebrum",
+        "C": "Medulla",
+        "D": "Thalamus"
+      },
+      "correct_answer": "A",
+      "explanation": "Cerebellum coordinates voluntary movements.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 38,
+      "question": "The 'Inkblot Test' was developed by?",
+      "options": {
+        "A": "Hermann Rorschach",
+        "B": "Jung",
+        "C": "Adler",
+        "D": "Freud"
+      },
+      "correct_answer": "A",
+      "explanation": "Used for personality assessment.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 39,
+      "question": "What is 'Short Term Memory' capacity (Miller's Law)?",
+      "options": {
+        "A": "7 ± 2",
+        "B": "5 ± 1",
+        "C": "10 ± 2",
+        "D": "Unlimited"
+      },
+      "correct_answer": "A",
+      "explanation": "Humans can hold 5-9 items in STM.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 40,
+      "question": "In classical conditioning, the bell was originally a?",
+      "options": {
+        "A": "Neutral Stimulus",
+        "B": "Conditioned Stimulus",
+        "C": "Unconditioned Stimulus",
+        "D": "Response"
+      },
+      "correct_answer": "A",
+      "explanation": "It becomes a CS only after pairing.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+
+    {
+      "id": 41,
+      "question": "Which teaching method is most learner-centered?",
+      "options": {
+        "A": "Project Method",
+        "B": "Lecture Method",
+        "C": "Demonstration",
+        "D": "Dictation"
+      },
+      "correct_answer": "A",
+      "explanation": "Involves active student participation.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 42,
+      "question": "The 'Micro-teaching' technique is used for?",
+      "options": {
+        "A": "Teacher Training",
+        "B": "Classroom Management",
+        "C": "Student Evaluation",
+        "D": "Research"
+      },
+      "correct_answer": "A",
+      "explanation": "Focuses on specific teaching skills.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 43,
+      "question": "What does 'Socratic Method' rely on?",
+      "options": {
+        "A": "Questioning",
+        "B": "Listening",
+        "C": "Drawing",
+        "D": "Testing"
+      },
+      "correct_answer": "A",
+      "explanation": "Uses a dialogue of questions and answers.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 44,
+      "question": "Which is an example of an Audio-Visual aid?",
+      "options": {
+        "A": "Television",
+        "B": "Radio",
+        "C": "Textbook",
+        "D": "Chart"
+      },
+      "correct_answer": "A",
+      "explanation": "Combines both sight and sound.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 45,
+      "question": "Formative evaluation is conducted when?",
+      "options": {
+        "A": "During the process",
+        "B": "At the end",
+        "C": "Before starting",
+        "D": "Yearly"
+      },
+      "correct_answer": "A",
+      "explanation": "Aims to monitor student learning to provide ongoing feedback.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 46,
+      "question": "In the 'Inductive Method', we move from?",
+      "options": {
+        "A": "Specific to General",
+        "B": "General to Specific",
+        "C": "Known to Known",
+        "D": "Abstract to Concrete"
+      },
+      "correct_answer": "A",
+      "explanation": "Examples lead to the formula.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 47,
+      "question": "Who is the proponent of 'Learning by Doing'?",
+      "options": {
+        "A": "John Dewey",
+        "B": "Plato",
+        "C": "Froebel",
+        "D": "Montessori"
+      },
+      "correct_answer": "A",
+      "explanation": "Core of the Progressive Education movement.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 48,
+      "question": "What is a 'Lesson Plan'?",
+      "options": {
+        "A": "Teacher's daily guide",
+        "B": "Student's diary",
+        "C": "School calendar",
+        "D": "Exam schedule"
+      },
+      "correct_answer": "A",
+      "explanation": "Outlines objectives and activities for a class.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 49,
+      "question": "Which scale is used for measuring attitudes?",
+      "options": {
+        "A": "Likert Scale",
+        "B": "Richter Scale",
+        "C": "Vernier Scale",
+        "D": "Barometer"
+      },
+      "correct_answer": "A",
+      "explanation": "Commonly used in educational research.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 50,
+      "question": "The main goal of 'Inclusive Education' is?",
+      "options": {
+        "A": "Education for all",
+        "B": "Special schools",
+        "C": "Higher grades",
+        "D": "Teacher wealth"
+      },
+      "correct_answer": "A",
+      "explanation": "Integrating students with different needs into regular classes.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+
+    {
+      "id": 51,
+      "question": "How many Sustainable Development Goals (SDGs) are there?",
+      "options": { "A": "17", "B": "15", "C": "20", "D": "10" },
+      "correct_answer": "A",
+      "explanation": "Adopted by all UN member states in 2015.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 52,
+      "question": "The target year for achieving SDGs is?",
+      "options": { "A": "2030", "B": "2025", "C": "2050", "D": "2040" },
+      "correct_answer": "A",
+      "explanation": "Also known as Agenda 2030.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 53,
+      "question": "Which goal aims for 'Zero Hunger'?",
+      "options": { "A": "SDG 2", "B": "SDG 1", "C": "SDG 3", "D": "SDG 4" },
+      "correct_answer": "A",
+      "explanation": "Goal 2 focuses on food security.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 54,
+      "question": "SDG 4 is related to what?",
+      "options": {
+        "A": "Quality Education",
+        "B": "Gender Equality",
+        "C": "Clean Water",
+        "D": "Life on Land"
+      },
+      "correct_answer": "A",
+      "explanation": "Ensures inclusive and equitable quality education.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 55,
+      "question": "Which organization leads the monitoring of SDGs globally?",
+      "options": {
+        "A": "United Nations",
+        "B": "World Bank",
+        "C": "IMF",
+        "D": "WTO"
+      },
+      "correct_answer": "A",
+      "explanation": "Specifically the UN Department of Economic and Social Affairs.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 56,
+      "question": "Goal 5 focuses on?",
+      "options": {
+        "A": "Gender Equality",
+        "B": "No Poverty",
+        "C": "Innovation",
+        "D": "Peace"
+      },
+      "correct_answer": "A",
+      "explanation": "Empowering all women and girls.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 57,
+      "question": "What replaced the Millennium Development Goals (MDGs)?",
+      "options": {
+        "A": "SDGs",
+        "B": "UNICEF",
+        "C": "WHO",
+        "D": "Paris Agreement"
+      },
+      "correct_answer": "A",
+      "explanation": "SDGs succeeded MDGs in 2016.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 58,
+      "question": "SDG 14 focuses on 'Life Below ____'.",
+      "options": { "A": "Water", "B": "Land", "C": "Earth", "D": "Ice" },
+      "correct_answer": "A",
+      "explanation": "Conservation of oceans and seas.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 59,
+      "question": "Which SDG is for 'Affordable and Clean Energy'?",
+      "options": { "A": "SDG 7", "B": "SDG 9", "C": "SDG 11", "D": "SDG 13" },
+      "correct_answer": "A",
+      "explanation": "Ensuring access to modern energy.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 60,
+      "question": "How many indicators are in the SDG framework (approx)?",
+      "options": { "A": "231", "B": "100", "C": "500", "D": "50" },
+      "correct_answer": "A",
+      "explanation": "Refers to the Global Indicator Framework.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+
+    {
+      "id": 61,
+      "question": "The NRB Act 2058 was enacted in which BS year?",
+      "options": { "A": "2058", "B": "2048", "C": "2068", "D": "2038" },
+      "correct_answer": "A",
+      "explanation": "Nepal Rastra Bank Act, 2058.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 62,
+      "question": "What is the capital requirement for a commercial bank (Class A) as per NRB?",
+      "options": {
+        "A": "8 Billion",
+        "B": "2 Billion",
+        "C": "5 Billion",
+        "D": "10 Billion"
+      },
+      "correct_answer": "A",
+      "explanation": "Current minimum paid-up capital is 8 Arab.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 63,
+      "question": "How many Deputy Governors are in NRB?",
+      "options": { "A": "2", "B": "1", "C": "3", "D": "4" },
+      "correct_answer": "A",
+      "explanation": "There are two Deputy Governors in the hierarchy.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 64,
+      "question": "The Governor is appointed for a term of how many years?",
+      "options": { "A": "5", "B": "4", "C": "6", "D": "2" },
+      "correct_answer": "A",
+      "explanation": "5-year term under the Act.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 65,
+      "question": "Who is the first Governor of Nepal Rastra Bank?",
+      "options": {
+        "A": "Himalaya Shumsher Rana",
+        "B": "Yadav Prasad Pant",
+        "C": "Bhesh Bahadur Thapa",
+        "D": "Lakshmi Nath Gautam"
+      },
+      "correct_answer": "A",
+      "explanation": "Appointed in 2013 BS.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 66,
+      "question": "Section 3 of the NRB Act states NRB is a/an ____ body.",
+      "options": {
+        "A": "Autonomous",
+        "B": "Private",
+        "C": "Temporary",
+        "D": "Branch"
+      },
+      "correct_answer": "A",
+      "explanation": "Autonomous and corporate body with perpetual succession.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 67,
+      "question": "Which section defines the functions, duties and powers of the Bank?",
+      "options": {
+        "A": "Section 5",
+        "B": "Section 1",
+        "C": "Section 10",
+        "D": "Section 15"
+      },
+      "correct_answer": "A",
+      "explanation": "Core functions are in Section 5.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 68,
+      "question": "Can the Governor be reappointed?",
+      "options": {
+        "A": "Yes, once",
+        "B": "No",
+        "C": "Unlimited",
+        "D": "After 10 years"
+      },
+      "correct_answer": "A",
+      "explanation": "Section 18 allows for one reappointment.",
+      "media_type": "text",
+      "difficulty": "hard"
+    },
+    {
+      "id": 69,
+      "question": "What is the age limit to become a Governor?",
+      "options": {
+        "A": "35 to 65",
+        "B": "25 to 55",
+        "C": "45 to 70",
+        "D": "No limit"
+      },
+      "correct_answer": "A",
+      "explanation": "Candidates must be between 35 and 65 years.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 70,
+      "question": "Who audits Nepal Rastra Bank?",
+      "options": {
+        "A": "Auditor General",
+        "B": "Private Auditor",
+        "C": "Finance Ministry",
+        "D": "IMF"
+      },
+      "correct_answer": "A",
+      "explanation": "The Auditor General of Nepal.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+
+    {
+      "id": 71,
+      "question": "What does ATM stand for?",
+      "options": {
+        "A": "Automated Teller Machine",
+        "B": "Any Time Money",
+        "C": "Automatic Transaction Mode",
+        "D": "All Time Mechanism"
+      },
+      "correct_answer": "A",
+      "explanation": "Electronic telecommunications device for financial transactions.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 72,
+      "question": "A 'Dormant Account' is one that has been inactive for how long?",
+      "options": {
+        "A": "6 months",
+        "B": "1 year",
+        "C": "2 years",
+        "D": "5 years"
+      },
+      "correct_answer": "A",
+      "explanation": "Generally marked after 6 months of no activity in Nepal.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 73,
+      "question": "Which type of check cannot be cashed at the counter?",
+      "options": {
+        "A": "Account Payee",
+        "B": "Bearer",
+        "C": "Order",
+        "D": "Open"
+      },
+      "correct_answer": "A",
+      "explanation": "Must be deposited into the beneficiary's account.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 74,
+      "question": "What is the 'Lender of Last Resort'?",
+      "options": {
+        "A": "Central Bank",
+        "B": "Commercial Bank",
+        "C": "World Bank",
+        "D": "Cooperatives"
+      },
+      "correct_answer": "A",
+      "explanation": "Central bank offers loans to banks in financial difficulty.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 75,
+      "question": "The difference between interest earned and interest paid is called?",
+      "options": { "A": "Spread", "B": "Profit", "C": "Margin", "D": "Yield" },
+      "correct_answer": "A",
+      "explanation": "Net Interest Spread.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 76,
+      "question": "Which Class includes Microfinance Institutions in Nepal?",
+      "options": {
+        "A": "Class D",
+        "B": "Class C",
+        "C": "Class B",
+        "D": "Class A"
+      },
+      "correct_answer": "A",
+      "explanation": "Based on the BAFIA classification.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 77,
+      "question": "A fixed deposit is also known as?",
+      "options": {
+        "A": "Term Deposit",
+        "B": "Demand Deposit",
+        "C": "Saving Deposit",
+        "D": "Current Deposit"
+      },
+      "correct_answer": "A",
+      "explanation": "Locked for a specific period.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+    {
+      "id": 78,
+      "question": "What is CRR?",
+      "options": {
+        "A": "Cash Reserve Ratio",
+        "B": "Credit Rating Record",
+        "C": "Current Rate Ratio",
+        "D": "Cash Return Risk"
+      },
+      "correct_answer": "A",
+      "explanation": "Mandatory percentage of deposits kept with NRB.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 79,
+      "question": "SWIFT is used for what purpose?",
+      "options": {
+        "A": "International Transfers",
+        "B": "Local ATM",
+        "C": "Opening Accounts",
+        "D": "Hiring"
+      },
+      "correct_answer": "A",
+      "explanation": "Secure network for global financial messaging.",
+      "media_type": "text",
+      "difficulty": "medium"
+    },
+    {
+      "id": 80,
+      "question": "Who issues currency notes in Nepal?",
+      "options": {
+        "A": "NRB",
+        "B": "Government",
+        "C": "Mint Division",
+        "D": "Commercial Banks"
+      },
+      "correct_answer": "A",
+      "explanation": "Monetary authority of the country.",
+      "media_type": "text",
+      "difficulty": "easy"
+    },
+
+    {
+      "id": 81,
+      "question": "Find the compound interest on Rs. 1000 for 2 years at 10% per annum.",
+      "options": {
+        "A": "Rs. 210",
+        "B": "Rs. 200",
+        "C": "Rs. 100",
+        "D": "Rs. 220"
+      },
+      "correct_answer": "A",
+      "explanation": "$1000(1.1)^2 - 1000 = 210$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 82,
+      "question": "If an asset of Rs. 10,000 depreciates at 20% p.a., what is the value after 1 year?",
+      "options": {
+        "A": "Rs. 8000",
+        "B": "Rs. 9000",
+        "C": "Rs. 2000",
+        "D": "Rs. 7500"
+      },
+      "correct_answer": "A",
+      "explanation": "$10000 \\times 0.8 = 8000$",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 83,
+      "question": "Calculate compound amount on Rs. 5000 at 5% for 2 years.",
+      "options": {
+        "A": "Rs. 5512.5",
+        "B": "Rs. 5500",
+        "C": "Rs. 5600",
+        "D": "Rs. 5200"
+      },
+      "correct_answer": "A",
+      "explanation": "$5000 \\times (1.05)^2 = 5512.5$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 84,
+      "question": "If CI is Rs. 420 and rate is 10% for 2 years, find Principal.",
+      "options": {
+        "A": "Rs. 2000",
+        "B": "Rs. 1000",
+        "C": "Rs. 1500",
+        "D": "Rs. 3000"
+      },
+      "correct_answer": "A",
+      "explanation": "$P(1.21-1) = 420 \\implies P = 2000$",
+      "media_type": "math",
+      "difficulty": "hard"
+    },
+    {
+      "id": 85,
+      "question": "Value of a car decreases from Rs. 20 Lakhs to Rs. 18 Lakhs. Rate of depreciation?",
+      "options": { "A": "10%", "B": "5%", "C": "15%", "D": "20%" },
+      "correct_answer": "A",
+      "explanation": "$\\frac{2}{20} \\times 100 = 10\\%$",
+      "media_type": "math",
+      "difficulty": "medium"
+    },
+    {
+      "id": 86,
+      "question": "Difference between CI and SI on Rs. 1000 at 10% for 2 years?",
+      "options": { "A": "Rs. 10", "B": "Rs. 20", "C": "Rs. 5", "D": "Rs. 0" },
+      "correct_answer": "A",
+      "explanation": "$CI=210, SI=200 \\implies Diff=10$",
+      "media_type": "math",
+      "difficulty": "hard"
+    },
+    {
+      "id": 87,
+      "question": "Formula for Amount in Compound Interest?",
+      "options": {
+        "A": "$P(1 + \\frac{r}{100})^t$",
+        "B": "$P(1 + \\frac{rt}{100})$",
+        "C": "$P + I$",
+        "D": "All of above"
+      },
+      "correct_answer": "D",
+      "explanation": "Both mathematical and conceptual definitions.",
+      "media_type": "math",
+      "difficulty": "easy"
+    },
+    {
+      "id": 88,
+      "question": "At what rate will Rs. 1000 become Rs. 1331 in 3 years (Compounded)?",
+      "options": { "A": "10%", "B": "5%", "C": "15%", "D": "20%" },
+      "correct_answer": "A",
+      "explanation": "$\\sqrt[3]{1.331} = 1.1 \\implies 10\\%$",
+      "media_type": "math",
+      "difficulty": "hard"
+    },
+    {
+      "id": 89,
+      "question": "A bike depreciates 10% every 6 months. Value after 1 year if initial is Rs. 1,00,000?",
+      "options": {
+        "A": "Rs. 81,000",
+        "B": "Rs. 80,000",
+        "C": "Rs. 90,000",
+        "D": "Rs. 85,000"
+      },
+      "correct_answer": "A",
+      "explanation": "$100000 \\times (0.9)^2 = 81000$",
+      "media_type": "math",
+      "difficulty": "hard"
+    },
+    {
+      "id": 90,
+      "question": "Half-yearly compound interest is ____ than annual for same rate.",
+      "options": { "A": "Higher", "B": "Lower", "C": "Same", "D": "Zero" },
+      "correct_answer": "A",
+      "explanation": "Compounding frequency increases interest.",
+      "media_type": "text",
+      "difficulty": "medium"
+    }
+  ],
+  "question_tags": [
+    {
+      "question_id": 1,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 2,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 3,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 4,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 5,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 6,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 7,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 8,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 9,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 10,
+      "category_id": 1,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 1
+    },
+    {
+      "question_id": 11,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 12,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 13,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 14,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 15,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 16,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 17,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 18,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 19,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 20,
+      "category_id": 2,
+      "exam_id": 1,
+      "subject_id": 1,
+      "topic_id": 2
+    },
+    {
+      "question_id": 21,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 22,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 23,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 24,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 25,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 26,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 27,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 28,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 29,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 30,
+      "category_id": 3,
+      "exam_id": 1,
+      "subject_id": 2,
+      "topic_id": 3
+    },
+    {
+      "question_id": 31,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 32,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 33,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 34,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 35,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 36,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 37,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 38,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 39,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 40,
+      "category_id": 4,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 4
+    },
+    {
+      "question_id": 41,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 42,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 43,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 44,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 45,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 46,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 47,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 48,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 49,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 50,
+      "category_id": 5,
+      "exam_id": 2,
+      "subject_id": 4,
+      "topic_id": 5
+    },
+    {
+      "question_id": 51,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 52,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 53,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 54,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 55,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 56,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 57,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 58,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 59,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 60,
+      "category_id": 6,
+      "exam_id": 2,
+      "subject_id": 2,
+      "topic_id": 6
+    },
+    {
+      "question_id": 61,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 62,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 63,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 64,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 65,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 66,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 67,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 68,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 69,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 70,
+      "category_id": 7,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 7
+    },
+    {
+      "question_id": 71,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 72,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 73,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 74,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 75,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 76,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 77,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 78,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 79,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 80,
+      "category_id": 8,
+      "exam_id": 3,
+      "subject_id": 3,
+      "topic_id": 8
+    },
+    {
+      "question_id": 81,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 82,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 83,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 84,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 85,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 86,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 87,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 88,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 89,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    },
+    {
+      "question_id": 90,
+      "category_id": 9,
+      "exam_id": 3,
+      "subject_id": 1,
+      "topic_id": 9
+    }
+  ]
+}

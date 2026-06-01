@@ -1,0 +1,86 @@
+import { Request, Response, NextFunction } from 'express';
+import { verifyToken } from '../../utils/jwtUtils';
+import User from '../../models/userModels';
+
+
+
+
+
+export const authenticate = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  const token = req.cookies?.token;
+
+  if (!token) {
+    res.status(401).json({ message: 'Authentication token required' });
+    return;
+  }
+
+  try {
+    const decoded = verifyToken(token);
+
+    if (!decoded || typeof decoded !== 'object' || !('id' in decoded)) {
+      res.status(401).json({ message: 'Invalid token format' });
+      return;
+    }
+
+    // Optional: fetch full user info (exclude password)
+    const user = await User.findByPk(decoded.id, {
+      attributes: { exclude: ['password'] },
+    });
+
+    if (!user) {
+      res.status(401).json({ message: 'User not found' });
+      return;
+    }
+
+    req.user = user;
+    next();
+  } catch {
+    res.clearCookie('token');
+    res.status(401).json({ message: 'Invalid or expired token' });
+  }
+};
+
+export const maybeAuthenticate = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> => {
+  const token = req.cookies?.token;
+
+  if (!token) {
+    return next(); // No token — proceed as guest
+  }
+
+  try {
+    const decoded = verifyToken(token);
+
+    if (decoded && typeof decoded === 'object' && 'id' in decoded) {
+      const user = await User.findByPk(decoded.id, {
+        attributes: { exclude: ['password'] },
+      });
+
+      if (user) {
+        req.user = user;
+      }
+    }
+  } catch {
+    // Don't throw or return — just skip setting req.user
+  }
+  next(); // Always continue to controller
+};
+
+export const isSuperAdmin = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  if (!req.user || req.user.role !== 'superadmin') {
+    res.status(403).json({ message: 'Access denied: Superadmin role required' });
+    return;
+  }
+  next();
+};
