@@ -1,0 +1,43 @@
+\pagenumbering{arabic}
+\chapter{Introduction}
+
+\section{Background}
+Manual emergency dispatch relies on human operators to interpret caller locations, consult jurisdiction maps, and contact the correct station by telephone. This triage phase alone can add two to five minutes to response time, a delay that is clinically significant in cardiac emergencies and structurally consequential in fires. Open-source spatial databases such as PostGIS have made it feasible to automate jurisdiction lookup with sub-millisecond containment queries \cite{postgis2023}.
+
+\section{Problem Definition}
+Nepal has no spatial dispatch platform; operators at Kathmandu and Pokhara centres still use telephone and paper maps to assign incidents to stations. Human triage introduces errors during concurrent incidents and peak demand, directly increasing response times. No open-source, containerised CAD system has been designed for the Nepali operational context \cite{luxen2011realtime}.
+
+\section{Objectives}
+The primary objectives of this project are:
+\begin{enumerate}
+  \setlength\itemsep{10pt}
+  \item Build a containerised spatial database using PostgreSQL 16 + PostGIS 3.4 to store station points and zone polygons.
+  \item Implement automated jurisdiction triage via \texttt{ST\_Contains} to match any incident coordinate to its enclosing zone without human intervention.
+  \item Integrate OSRM to compute real road-network routes from an assigned station to an incident scene.
+  \item Provide a live-telemetry layer using Socket.io so responder position streams to the citizen and admin dashboard in real time.
+  \item Enforce role-based access control for Admin, Responder, and Citizen roles secured by JWT cookies and Google OAuth2.
+\end{enumerate}
+
+\section{Scope and Limitation}
+
+\subsection{Scope}
+SEDS covers the following functional areas:
+\begin{enumerate}
+  \setlength\itemsep{10pt}
+  \item \textbf{Authentication:} JWT HTTP-only cookies, bcrypt passwords, email verification, and Google OAuth2.
+  \item \textbf{Station and Zone Management:} Admin CRUD for PostGIS point stations and polygon zones with MapLibre GL drawing tools and GeoJSON upload.
+  \item \textbf{Automated Triage:} \texttt{ST\_Contains} spatial query auto-assigns the correct station when a citizen submits an SOS.
+  \item \textbf{Routing:} OSRM integration computes optimal driving paths over the OpenStreetMap Nepal road network.
+  \item \textbf{Real-Time Telemetry:} Socket.io incident rooms stream responder location and bearing to citizens and admins.
+\end{enumerate}
+
+\subsection{Limitation}
+The current design has the following limitations:
+\begin{enumerate}
+  \setlength\itemsep{10pt}
+  \item \textbf{Internet Dependency:} All core functions require active internet on both citizen and responder devices; no offline fallback exists.
+  \item \textbf{GPS Accuracy:} Triage precision is bounded by device GPS quality; urban-canyon errors near zone boundaries can cause misclassification.
+  \item \textbf{OSRM Hosting:} Routing requires a separately maintained OSRM server; service failure disables route computation.
+  \item \textbf{Manual Zone Configuration:} Zone boundaries must be drawn or uploaded by an admin; no automated partitioning is provided.
+  \item \textbf{No PSAP Integration:} SEDS is a standalone web application with no connection to government telephony or legacy dispatch hardware.
+\end{enumerate}

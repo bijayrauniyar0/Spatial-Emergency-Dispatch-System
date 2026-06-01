@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import './models/incidentModel';
+import './models/responderModels';
 import authRouter from './routes/authRoutes';
 import userRoutes from './routes/userRoutes';
 import adminRouter from './routes/adminRoutes';

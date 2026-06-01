@@ -1,0 +1,144 @@
+%Sagarmatha Engineering College Project Report Template
+\documentclass[12pt,a4paper,oneside,openany]{report}
+\usepackage[titles]{tocloft}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{hhline}
+\usepackage{graphicx}
+\graphicspath{{./Graphics/}}
+\usepackage[left=1.25in, right=1in,top=1in,bottom=1in,headheight=6pt, a4paper]{geometry}
+\usepackage{titling}
+\usepackage{booktabs}
+%\usepackage{times}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage[font=normalsize,labelfont=bf,tableposition=top]{caption}
+% \usepackage{setspace}
+\usepackage{tabto}
+\usepackage[explicit]{titlesec}
+\usepackage[absolute]{textpos}
+\usepackage[export]{adjustbox}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{datetime}
+\usepackage{tikz}
+%\usepackage{minted}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+
+\usepackage{mathptmx}
+
+\usepackage{hyperref}        % For clickable links and citations
+\usepackage{amsmath}   % For mathematical formatting
+\usepackage{amssymb}    % For mathematical symbols
+
+\hypersetup{
+    hidelinks
+}
+\setlength{\cftbeforechapskip}{5pt}
+
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+\renewcommand{\cftfigpresnum}{Figure~}
+\renewcommand{\cftfigaftersnum}{: }
+\renewcommand\tabularxcolumn[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\cftfignumwidth}{5em}
+
+
+% Font size and spacing
+% line spacing  
+\linespread{1.5}
+% space between paragraphs
+\setlength{\parskip}{10pt}
+% indentation at the beginning of each paragraph
+\setlength{\parindent}{0em}
+% space between list item
+\setlist{itemsep=10pt}
+
+
+% Chapter formatting (bold, 16px ≈ 10.5pt) (16 * 1.5 = 24)
+\titleformat{\chapter}
+  {\normalfont\bfseries\fontsize{16pt}{21pt}\selectfont}
+  {\MakeUppercase{\thechapter.}}
+  {1em}                           
+  {\MakeUppercase{#1}}
+\titlespacing{\chapter}{0pt}{-50pt}{0pt}
+
+ % Format for unnumbered chapters (e.g., Abstract, Table of Contents)
+\titleformat{name=\chapter,numberless}[block]
+  {\normalfont\bfseries\centering\fontsize{16pt}{21pt}\selectfont}
+  {}
+  {0pt}
+  {\MakeUppercase{#1}}
+\titlespacing*{\chapter}{0pt}{-50pt}{0pt}
+
+% Section formatting (bold, 14px ≈ 10.5pt) (14 * 1.5 = 21)
+\titleformat{\section}
+    {\normalfont\normalsize\bfseries}{\thesection}{1em}{\fontsize{14pt}{18pt}\selectfont #1}
+\titlespacing{\section}{0pt}{0pt}{0pt}
+
+% Subsection formatting (bold, 12px ≈ 9pt) (12 * 1.5 = 18)
+\titleformat{\subsection}
+    {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{\fontsize{12pt}{16pt}\selectfont #1}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+
+% Subsubsection formatting (bold, 12px ≈ 9pt) (12 * 1.5 = 18)
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{\fontsize{12pt}{16pt}\selectfont #1}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}
+
+% Body text formatting (12px ≈ 9pt) (12 * 1.5 = 18)
+\renewcommand{\normalsize}{\fontsize{12pt}{16pt}\selectfont}
+
+
+\captionsetup{justification=centering}
+\captionsetup[table]{singlelinecheck=off}
+\title{Spatial Emergency Dispatch System}
+\author{Bijay Rauniyar, Anikesh Mandal}
+\date{\monthyeardate\today}
+
+
+\renewcommand{\bibname}{References}
+\renewcommand\contentsname{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+
+\renewcommand{\arraystretch}{1.5} % Vertical padding (row height)
+\setlength{\tabcolsep}{10pt}      % Horizontal padding (column separation)
+
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\let\cleardoublepage\clearpage
+\usepackage{placeins}
+
+\begin{document}
+
+\include{section/1-cover}
+\include{section/2-abstract}
+
+\tableofcontents
+\renewcommand\cftfigafterpnum{\baselinestretch}
+\renewcommand\cftfigafterpnum{\vskip5pt\par}
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\include{section/abbreviations}
+
+% Chapter begin
+\include{section/ch1-introduction}
+\include{section/ch2-background-study-and-literature-review}
+\include{section/ch3-system-analysis.tex}
+\include{section/ch4-system-design}
+\include{section/ch5-progress-report}
+
+\bibliographystyle{unsrt}
+\bibliography{references/ref}
+\addcontentsline{toc}{chapter}{References}
+\end{document}

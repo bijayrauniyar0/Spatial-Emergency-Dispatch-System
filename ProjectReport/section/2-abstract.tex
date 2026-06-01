@@ -1,0 +1,8 @@
+\pagenumbering{roman}
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{Abstract}
+
+The \textbf{Spatial Emergency Dispatch System (SEDS)} aims to eliminate the bottleneck of manual emergency dispatch by automating jurisdiction lookup, responder assignment, and route delivery through spatial computation. It addresses the critical delays introduced when human operators must manually identify service zones and coordinate responses. The system uses a PostGIS \texttt{ST\_Contains} query to match a citizen's SOS location against pre-defined zone polygons and instantly assign the nearest responsible station — police, fire, or medical — without dispatcher involvement. Planned features include OSRM road-network routing for turn-by-turn responder navigation and Socket.io real-time telemetry to stream the responder's live position to the citizen's map. The platform is built on Next.js 16 with MapLibre GL for WebGL map rendering, a Node.js and Express REST API, and PostgreSQL 16 with PostGIS 3.4 running in Docker Compose. Role-based access control distinguishes citizen, responder, and admin roles, with a dedicated admin interface for managing station locations and drawing service zone boundaries directly on the map.
+
+\par
+\textbf{Keywords:} Spatial Dispatch, PostGIS, GIS, Emergency Response, MapLibre GL, OSRM, Socket.io
