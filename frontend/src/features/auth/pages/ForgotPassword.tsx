@@ -40,46 +40,28 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="h-full">
-      <div className="grid h-full place-items-center">
-        <div className="login-form w-full overflow-hidden p-7 text-center sm:min-w-[25.25rem] sm:px-12 lg:px-16">
-          {/* ------ icon ------ */}
-
-          <p className="text-primary text-5xl font-semibold select-none">
-            MockSewa
-          </p>
-          {/*  ------ form ------ */}
-          <form onSubmit={handleSubmit(onSubmit)} className="pt-12 pb-8">
-            <FlexColumn className="mb-4">
-              <Label htmlFor="email" className="mb-1">
-                Email
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="Enter Email (e.g. bijay@example.com)"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email format",
-                  },
-                })}
-              />
-              {errors?.email?.message && (
-                <ErrorMessage message={errors.email.message} />
-              )}
-            </FlexColumn>
-            <Button
-              className="mt-6 w-full p-3 md:mt-10"
-              disabled={isPending}
-              type="submit"
-            >
-              Send Reset Link
-            </Button>
-          </form>
-        </div>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <FlexColumn className="gap-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          type="email"
+          placeholder="Enter Email (e.g. bijay@example.com)"
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+              message: "Invalid email format",
+            },
+          })}
+        />
+        {errors?.email?.message && (
+          <ErrorMessage message={errors.email.message} />
+        )}
+      </FlexColumn>
+      <Button className="mt-2 w-full p-3" disabled={isPending} type="submit">
+        Send Reset Link
+      </Button>
+    </form>
   );
 }

@@ -223,7 +223,11 @@ export const checkLogin = async (req: Request, res: Response) => {
     return;
   }
   res.status(200).json({
-    isAuthenticated: true,
+    id: user.id,
+    email: user.email,
+    name: user.name,
+    role: user.role,
+    verified: user.verified,
   });
 };
 

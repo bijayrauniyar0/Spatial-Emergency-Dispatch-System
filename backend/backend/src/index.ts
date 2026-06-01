@@ -8,7 +8,6 @@ import { connectRedis } from './config/redis';
 
 async function init() {
   const httpServer = http.createServer(app);
-
   sequelize
     .authenticate()
     .then(() => {

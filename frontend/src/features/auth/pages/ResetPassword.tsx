@@ -57,55 +57,42 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="h-full">
-      <div className="grid h-full place-items-center">
-        <div className="login-form w-full overflow-hidden p-7 text-center sm:min-w-[25.25rem] sm:px-12 lg:px-16">
-          <p className="text-primary text-5xl font-semibold select-none">
-            MockSewa
-          </p>
-          <form onSubmit={handleSubmit(onSubmit)} className="pt-12 pb-8">
-            <FlexColumn className="relative mb-2 md:mb-3">
-              <Label htmlFor="password" className="mb-1 text-xs">
-                Password
-              </Label>
-              <PasswordInput
-                id="password"
-                className="w-[4/5] pr-10"
-                placeholder="Enter Password"
-                {...register("password", { required: "Password is Required" })}
-              />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+      <FlexColumn className="gap-2">
+        <Label htmlFor="password" className="text-xs">
+          Password
+        </Label>
+        <PasswordInput
+          id="password"
+          className="w-[4/5] pr-10"
+          placeholder="Enter Password"
+          {...register("password", { required: "Password is Required" })}
+        />
 
-              {errors?.password?.message && (
-                <ErrorMessage message={errors.password.message} />
-              )}
-            </FlexColumn>
-            <FlexColumn className="relative mb-2 md:mb-3">
-              <Label htmlFor="password" className="mb-1 text-xs">
-                Confirm Password
-              </Label>
-              <PasswordInput
-                id="password"
-                className="w-[4/5] pr-10"
-                placeholder="Enter Confirm Password"
-                {...register("confirmPassword", {
-                  required: "Password is Required",
-                })}
-              />
+        {errors?.password?.message && (
+          <ErrorMessage message={errors.password.message} />
+        )}
+      </FlexColumn>
+      <FlexColumn className="gap-2">
+        <Label htmlFor="password" className="text-xs">
+          Confirm Password
+        </Label>
+        <PasswordInput
+          id="password"
+          className="w-[4/5] pr-10"
+          placeholder="Enter Confirm Password"
+          {...register("confirmPassword", {
+            required: "Password is Required",
+          })}
+        />
 
-              {errors?.confirmPassword?.message && (
-                <ErrorMessage message={errors.confirmPassword.message} />
-              )}
-            </FlexColumn>
-            <Button
-              className="mt-6 w-full p-3 md:mt-10"
-              disabled={isPending}
-              type="submit"
-            >
-              Reset
-            </Button>
-          </form>
-        </div>
-      </div>
-    </div>
+        {errors?.confirmPassword?.message && (
+          <ErrorMessage message={errors.confirmPassword.message} />
+        )}
+      </FlexColumn>
+      <Button className="mt-2 w-full p-3" disabled={isPending} type="submit">
+        Reset
+      </Button>
+    </form>
   );
 }

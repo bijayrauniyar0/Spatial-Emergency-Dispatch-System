@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Open_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 
+import { Navbar } from "@/components/common";
 import { TooltipProvider } from "@/components/primitives/tooltip";
+import { AuthInitializer } from "@/lib/authInitializer";
 import QueryProvider from "@/lib/queryProviders";
 
 import "./globals.css";
@@ -42,7 +44,11 @@ export default async function RootLayout({
         <Toaster richColors position="top-right" />
         <QueryProvider>
           <TooltipProvider>
-            <main className="flex-1">{children}</main>
+            <AuthInitializer />
+            <Navbar />
+            <main className="h-[calc(100vh-4.25rem)] overflow-hidden">
+              {children}
+            </main>
           </TooltipProvider>
         </QueryProvider>
       </body>

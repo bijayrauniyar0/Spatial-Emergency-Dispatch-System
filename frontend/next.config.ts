@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// const API_URL = process.env.NEXT_PUBLIC_API_V1 || "https://example.com/api/v1";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "https://example.com/api/v,1";
 
@@ -15,15 +15,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // trailingSlash: true,
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: "/api/backend/:path*/",
-  //       destination: API_URL + "/:path*/",
-  //     },
-  //   ];
-  // },
+  trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: "/api/backend/:path*/",
+        destination: API_URL + "/:path*/",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
