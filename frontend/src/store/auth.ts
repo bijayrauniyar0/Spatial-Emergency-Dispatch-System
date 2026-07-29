@@ -31,8 +31,7 @@ const useAuthStore = create<AuthState>()(
       ...initialState,
       setUserProfile: (profile: UserProfile) =>
         set((state) => ({ ...state, userProfile: profile })),
-      clearUserProfile: () =>
-        set((state) => ({ ...state, userProfile: null })),
+      clearUserProfile: () => set((state) => ({ ...state, userProfile: null })),
       setIsAuthenticated: (isAuthenticated: boolean) =>
         set((state) => ({ ...state, isAuthenticated })),
     }),

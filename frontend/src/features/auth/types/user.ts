@@ -2,7 +2,7 @@ interface User {
   id?: number;
   email?: string;
   name?: string;
-  role?: 'admin' | 'responder' | 'citizen';
+  role?: "admin" | "responder" | "citizen";
   [key: string]: any;
 }
 

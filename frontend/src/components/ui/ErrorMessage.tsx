@@ -12,9 +12,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({
   if (!message) return null;
 
   return (
-    <p className={`text-red-500 text-sm font-medium ${className}`}>
-      {message}
-    </p>
+    <p className={`text-sm font-medium text-red-500 ${className}`}>{message}</p>
   );
 };
 

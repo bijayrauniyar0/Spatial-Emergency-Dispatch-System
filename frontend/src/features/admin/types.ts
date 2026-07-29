@@ -1,4 +1,4 @@
-export type StationCategory = 'POLICE' | 'FIRE' | 'MEDICAL';
+export type StationCategory = "POLICE" | "FIRE" | "MEDICAL";
 
 export interface Station {
   id: number;
@@ -19,12 +19,12 @@ export interface CreateStationInput {
 }
 
 export interface GeoJSONPolygon {
-  type: 'Polygon';
+  type: "Polygon";
   coordinates: number[][][];
 }
 
 export interface GeoJSONPoint {
-  type: 'Point';
+  type: "Point";
   coordinates: [number, number];
 }
 

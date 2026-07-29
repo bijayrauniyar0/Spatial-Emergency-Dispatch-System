@@ -10,7 +10,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, variant = "primary", size = "md", className = "", ...props }, ref) => {
+  (
+    { children, variant = "primary", size = "md", className = "", ...props },
+    ref,
+  ) => {
     const baseStyles = "font-medium rounded transition-colors";
 
     const variants = {

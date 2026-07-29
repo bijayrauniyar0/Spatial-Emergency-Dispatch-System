@@ -2,23 +2,23 @@ import { api } from "@/lib/api-client/client";
 
 export const stationsClient = {
   async fetchStationsGeoJSON(
-    categories?: string
+    categories?: string,
   ): Promise<GeoJSON.FeatureCollection> {
     const params = categories ? { categories } : {};
     const response = await api.get<GeoJSON.FeatureCollection>(
       "/admin/stations/geojson",
-      { params }
+      { params },
     );
     return response.data;
   },
 
   async fetchZonesGeoJSON(
-    categories?: string
+    categories?: string,
   ): Promise<GeoJSON.FeatureCollection> {
     const params = categories ? { categories } : {};
     const response = await api.get<GeoJSON.FeatureCollection>(
       "/admin/zones/geojson",
-      { params }
+      { params },
     );
     return response.data;
   },

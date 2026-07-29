@@ -32,20 +32,22 @@ export default function ResetPassword() {
     resolver: zodResolver(resetPasswordValidation),
   });
 
-  const { mutate, isPending } = authResource.useApiMutation<ResetPasswordPayload>({
-    pathKey: "resetPassword",
-    options: {
-      onSuccess: () => {
-        toast.success("Password reset successful. Please login.");
-        router.push("/login");
+  const { mutate, isPending } =
+    authResource.useApiMutation<ResetPasswordPayload>({
+      pathKey: "resetPassword",
+      options: {
+        onSuccess: () => {
+          toast.success("Password reset successful. Please login.");
+          router.push("/login");
+        },
+        onError: (error: any) => {
+          const caughtError =
+            error?.response?.data?.message ||
+            "Something went wrong. Please try again.";
+          toast.error(caughtError);
+        },
       },
-      onError: (error: any) => {
-        const caughtError =
-          error?.response?.data?.message || "Something went wrong. Please try again.";
-        toast.error(caughtError);
-      },
-    },
-  });
+    });
 
   const onSubmit = (data: Record<string, any>) => {
     const { password } = data;

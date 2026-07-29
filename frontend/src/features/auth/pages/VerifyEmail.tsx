@@ -51,12 +51,14 @@ export default function VerifyEmail() {
         </div>
         <FlexColumn className="w-full gap-3">
           <FlexColumn className="gap-1">
-            <p className="text-lg font-semibold text-gray-700">Verification email sent!</p>
+            <p className="text-lg font-semibold text-gray-700">
+              Verification email sent!
+            </p>
             <p className="text-base font-medium text-gray-600">
               Please check your inbox to complete your registration
             </p>
           </FlexColumn>
-          <FlexColumn className="w-full items-center justify-center gap-1 mt-2">
+          <FlexColumn className="mt-2 w-full items-center justify-center gap-1">
             <p className="text-sm text-gray-500">Didn't receive the email?</p>
             {timerValue !== 0 && (
               <p className="text-md text-gray-500">
@@ -79,8 +81,8 @@ export default function VerifyEmail() {
         </FlexColumn>
       </FlexColumn>
       <p className="items-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Spatial Emergency Dispatch System. All rights
-        reserved.
+        © {new Date().getFullYear()} Spatial Emergency Dispatch System. All
+        rights reserved.
       </p>
     </FlexColumn>
   );

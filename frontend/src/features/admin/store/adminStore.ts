@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import { AdminStoreState, CreateStationInput } from "../types";
+
 import { adminClient } from "../services/client";
+import { AdminStoreState, CreateStationInput } from "../types";
 
 export const useAdminStore = create<AdminStoreState>((set) => ({
   stations: [],

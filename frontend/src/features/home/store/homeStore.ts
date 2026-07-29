@@ -18,8 +18,7 @@ export const useHomeStore = create<HomeStoreState>((set, get) => ({
         : [...state.selectedCategories, category];
       return { selectedCategories: selected };
     }),
-  selectAll: () =>
-    set({ selectedCategories: ["POLICE", "FIRE", "MEDICAL"] }),
+  selectAll: () => set({ selectedCategories: ["POLICE", "FIRE", "MEDICAL"] }),
   getCategoriesQueryParam: () => {
     const { selectedCategories } = get();
     return selectedCategories.length > 0

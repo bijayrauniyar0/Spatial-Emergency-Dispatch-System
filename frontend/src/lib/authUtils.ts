@@ -1,5 +1,5 @@
-import { api } from "@/lib/api-client/client";
 import { UserProfile } from "@/features/user/services";
+import { api } from "@/lib/api-client/client";
 import useAuthStore from "@/store/auth";
 
 export async function fetchAndSetUserProfile() {
