@@ -40,7 +40,7 @@ User.init(
       allowNull: true,
     },
     oauth_provider: {
-      type: DataTypes.ENUM('local', 'google'),
+      type: DataTypes.ENUM('local', 'google', 'guest'),
       allowNull: false,
       defaultValue: 'local',
     },

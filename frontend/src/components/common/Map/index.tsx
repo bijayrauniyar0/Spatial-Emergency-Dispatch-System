@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { cn } from "@/lib/utils";
+
 import BaseLayerSwitcher from "./BaseLayerSwitcher";
 import useMapLibreGLMap from "./hooks";
 import MapContainer from "./MapContainer";
@@ -10,9 +12,14 @@ import { IMapOptions } from "./types";
 
 interface MapProps extends IMapOptions {
   children?: React.ReactNode;
+  className?: string;
 }
 
-export default function MapComponent({ children, ...mapOptions }: MapProps) {
+export default function MapComponent({
+  children,
+  className,
+  ...mapOptions
+}: MapProps) {
   const { map, isMapLoaded } = useMapLibreGLMap(mapOptions);
   const [activeBaseLayer, setActiveBaseLayer] = useState("osm");
 
@@ -21,7 +28,8 @@ export default function MapComponent({ children, ...mapOptions }: MapProps) {
       <MapContainer
         map={map}
         isMapLoaded={isMapLoaded}
-        className="h-full w-full"
+        id={mapOptions.containerId}
+        className={cn("h-full w-full", className)}
       >
         {/* Child components like Layers can be passed here */}
 
@@ -47,8 +55,12 @@ export default function MapComponent({ children, ...mapOptions }: MapProps) {
 
 // Re-export useful items
 export { default as useMapLibreGLMap } from "./hooks";
-export type { PopupActions, PopupData, PopupProps } from "./Popup";
-export { default as Popup } from "./Popup";
+export type {
+  default as Popup,
+  PopupActions,
+  PopupData,
+  PopupProps,
+} from "./Popup";
 export { default as TileLayer } from "./RasterTileLayer";
 export * from "./types";
 export { default as VectorLayer } from "./VectorLayer";
