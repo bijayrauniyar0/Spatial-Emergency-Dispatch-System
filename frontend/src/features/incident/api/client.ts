@@ -1,4 +1,5 @@
 import { api } from "@/lib/api-client/client";
+
 import { CreateIncidentInput, Incident } from "../types";
 
 export const incidentClient = {
@@ -14,7 +15,7 @@ export const incidentClient = {
     const response = await api.get<{
       message: string;
       data: Incident | null;
-    }>("/incidents/active");
+    }>("/incidents/my-request");
     return response.data.data;
   },
 };

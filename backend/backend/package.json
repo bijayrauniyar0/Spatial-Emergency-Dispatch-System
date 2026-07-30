@@ -6,7 +6,8 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "seed": "tsx src/scripts/seedDatabase.ts"
+    "seed": "tsx src/scripts/seedDatabase.ts",
+    "migrate": "tsx src/scripts/migrateIncidentStatus.ts"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.27.0",

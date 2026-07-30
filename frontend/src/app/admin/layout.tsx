@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 
 import { SidebarInset, SidebarProvider } from "@/components/primitives/sidebar";
 import { AdminSidebar } from "@/features/admin/components/AdminSidebar";
+import { RequireRole } from "@/components/common/RequireRole";
 
 interface AdminLayoutProps {
   children: ReactNode;
@@ -11,9 +12,11 @@ interface AdminLayoutProps {
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
   return (
-    <SidebarProvider>
-      <AdminSidebar />
-      <SidebarInset>{children}</SidebarInset>
-    </SidebarProvider>
+    <RequireRole role="admin">
+      <SidebarProvider>
+        <AdminSidebar />
+        <SidebarInset>{children}</SidebarInset>
+      </SidebarProvider>
+    </RequireRole>
   );
 }

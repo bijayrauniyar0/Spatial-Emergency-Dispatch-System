@@ -1,6 +1,12 @@
 import { create } from "zustand";
-import { IncidentStoreState, CreateIncidentInput, Incident } from "../types";
-import { incidentClient } from "../api/client";
+
+import { api } from "@/lib/api-client/client";
+
+import {
+  CreateIncidentInput,
+  Incident,
+  IncidentStoreState,
+} from "../types";
 
 export const useIncidentStore = create<IncidentStoreState>((set) => ({
   activeIncident: null,
@@ -10,11 +16,16 @@ export const useIncidentStore = create<IncidentStoreState>((set) => ({
   fetchActiveIncident: async () => {
     set({ isLoading: true, error: null });
     try {
-      const incident = await incidentClient.getActiveIncident();
-      set({ activeIncident: incident, isLoading: false });
+      const response = await api.get<{
+        message: string;
+        data: Incident | null;
+      }>("/incidents/my-request");
+      set({ activeIncident: response.data.data, isLoading: false });
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Failed to fetch active incident";
+        error instanceof Error
+          ? error.message
+          : "Failed to fetch active incident";
       set({ error: errorMessage, isLoading: false });
     }
   },
@@ -22,9 +33,12 @@ export const useIncidentStore = create<IncidentStoreState>((set) => ({
   submitIncident: async (data: CreateIncidentInput) => {
     set({ isLoading: true, error: null });
     try {
-      const incident = await incidentClient.createIncident(data);
-      set({ activeIncident: incident, isLoading: false });
-      return incident;
+      const response = await api.post<{
+        message: string;
+        data: Incident;
+      }>("/incidents", data);
+      set({ activeIncident: response.data.data, isLoading: false });
+      return response.data.data;
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "Failed to submit incident";

@@ -4,6 +4,7 @@ import sequelize from '../config/database';
 import User from '../models/userModels';
 import Responder from '../models/responderModels';
 import Station from '../models/stationModels';
+import Incident from '../models/incidentModel';
 
 interface CreateResponderRequest {
   name: string;
@@ -285,6 +286,61 @@ export const deleteResponder = async (
     });
   } catch (error) {
     console.error('Error deleting responder:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const getMyResponderProfile = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const responder = await Responder.findOne({
+      where: { user_id: req.user.id },
+      include: [
+        {
+          model: Station,
+          attributes: ['id', 'name', 'category'],
+        },
+      ],
+    });
+
+    if (!responder) {
+      res.status(404).json({
+        error: 'Responder profile not found. Please contact admin.',
+      });
+      return;
+    }
+
+    // Check if responder has an active task (check for RESPONDING status)
+    const activeTask = await Incident.findOne({
+      where: {
+        responder_id: responder.id,
+        status: 'RESPONDING',
+      },
+    });
+
+    const profileData = {
+      ...responder.toJSON(),
+      has_active_task: !!activeTask,
+    };
+
+    res.status(200).json({
+      message: 'Responder profile retrieved',
+      data: profileData,
+    });
+  } catch (error) {
+    console.error('Error fetching responder profile:', error);
 
     if (error instanceof Error) {
       res.status(500).json({

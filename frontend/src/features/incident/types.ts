@@ -6,7 +6,7 @@ export interface Incident {
   station_id: number;
   responder_id: number | null;
   category: IncidentCategory;
-  status: 'PENDING' | 'RESPONDING' | 'RESOLVED';
+  status: 'PENDING' | 'RESPONDING' | 'ARRIVED' | 'RESOLVED';
   location: {
     type: 'Point';
     coordinates: [number, number];
@@ -16,7 +16,17 @@ export interface Incident {
     name: string;
     category: string;
   };
+  Responder?: {
+    id: number;
+    status: string;
+    User?: {
+      id: number;
+      name: string;
+      number: string | null;
+    };
+  };
   created_at: string;
+  accepted_at?: string | null;
   updated_at: string;
 }
 

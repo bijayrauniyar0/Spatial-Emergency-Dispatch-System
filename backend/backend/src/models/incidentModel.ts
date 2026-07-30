@@ -11,11 +11,12 @@ class Incident extends Model {
   public station_id!: ForeignKey<Station['id']>;
   public responder_id!: ForeignKey<Responder['id']> | null;
   public category!: 'POLICE' | 'FIRE' | 'MEDICAL';
-  public status!: 'PENDING' | 'RESPONDING' | 'RESOLVED';
+  public status!: 'PENDING' | 'RESPONDING' | 'ARRIVED' | 'RESOLVED';
   public location!: {
     type: 'Point';
     coordinates: [number, number];
   };
+  public accepted_at!: Date | null;
   public created_at!: Date;
   public updated_at!: Date;
 }
@@ -59,13 +60,17 @@ Incident.init(
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('PENDING', 'RESPONDING', 'RESOLVED'),
+      type: DataTypes.ENUM('PENDING', 'RESPONDING', 'ARRIVED', 'RESOLVED'),
       allowNull: false,
       defaultValue: 'PENDING',
     },
     location: {
       type: DataTypes.GEOMETRY('Point', 4326),
       allowNull: false,
+    },
+    accepted_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
   },
   {

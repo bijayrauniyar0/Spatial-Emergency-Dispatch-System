@@ -42,10 +42,18 @@ export default function Login() {
     pathKey: "login",
     options: {
       onSuccess: (res: any) => {
-        setUserProfile(res.user || res.data?.user);
+        const user = res.user || res.data?.user;
+        setUserProfile(user);
         setIsAuthenticated(true);
         toast.success("Login successful");
-        router.push("/");
+
+        // Redirect by role
+        if (user?.role === "admin") {
+          router.push("/admin");
+        } else {
+          // Responders and citizens both go to home page
+          router.push("/");
+        }
       },
       onError: (error: any) => {
         if (

@@ -10,12 +10,14 @@ interface UserProfile {
 interface AuthStateData {
   userProfile: UserProfile | null;
   isAuthenticated: boolean;
+  isAuthLoading: boolean;
 }
 
 interface AuthStateActions {
   setUserProfile: (profile: UserProfile) => void;
   clearUserProfile: () => void;
   setIsAuthenticated: (isAuthenticated: boolean) => void;
+  setIsAuthLoading: (isAuthLoading: boolean) => void;
 }
 
 type AuthState = AuthStateData & AuthStateActions;
@@ -23,6 +25,7 @@ type AuthState = AuthStateData & AuthStateActions;
 const initialState: AuthStateData = {
   userProfile: null,
   isAuthenticated: false,
+  isAuthLoading: true,
 };
 
 const useAuthStore = create<AuthState>()(
@@ -34,6 +37,8 @@ const useAuthStore = create<AuthState>()(
       clearUserProfile: () => set((state) => ({ ...state, userProfile: null })),
       setIsAuthenticated: (isAuthenticated: boolean) =>
         set((state) => ({ ...state, isAuthenticated })),
+      setIsAuthLoading: (isAuthLoading: boolean) =>
+        set((state) => ({ ...state, isAuthLoading })),
     }),
     { name: "authStore" },
   ),

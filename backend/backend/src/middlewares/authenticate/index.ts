@@ -84,3 +84,15 @@ export const isAdmin = (
   }
   next();
 };
+
+export const isResponder = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  if (!req.user || req.user.role !== 'responder') {
+    res.status(403).json({ message: 'Access denied: Responder role required' });
+    return;
+  }
+  next();
+};

@@ -1,10 +1,7 @@
 import { z } from "zod";
 
 export const createIncidentSchema = z.object({
-  category: z
-    .enum(["POLICE", "FIRE", "MEDICAL"], {
-      errorMap: () => ({ message: "Please select a valid category" }),
-    }),
+  category: z.enum(["POLICE", "FIRE", "MEDICAL"]),
   latitude: z
     .number()
     .min(-90, "Latitude must be between -90 and 90")

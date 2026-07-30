@@ -1,0 +1,56 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000" # Exposes the backend API
+    volumes:
+      - ./backend:/app # Syncs local backend directory with the container
+    command: ["yarn", "dev"]
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - app-network # Ensure the backend is on the app-network
+
+  redis:
+    image: redis:latest
+    container_name: seds-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+    networks:
+      - app-network # Ensure Redis is on the app-network
+
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: seds-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER} # Set the database user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Set the database password
+      POSTGRES_DB: ${POSTGRES_DB} # Set the database name
+    ports:
+      - "5433:5432" # Exposes the database on port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-postgis.sql:/docker-entrypoint-initdb.d/init-postgis.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bijay -d seds"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network # Ensure the database is on the app-network
+
+networks:
+  app-network:
+    driver: bridge # Uses the bridge driver to create the network
+
+volumes:
+  postgres_data:
+  redis_data:

@@ -6,9 +6,9 @@ import { userResource } from "@/features/user/services";
 import useAuthStore from "@/store/auth";
 
 export function AuthInitializer() {
-  const { setUserProfile, setIsAuthenticated, clearUserProfile } =
+  const { setUserProfile, setIsAuthenticated, clearUserProfile, setIsAuthLoading } =
     useAuthStore();
-  const { data: userProfile, isError } = userResource.useApiQuery({
+  const { data: userProfile, isError, isLoading } = userResource.useApiQuery({
     pathKey: "profile",
     options: {
       retry: false,
@@ -16,19 +16,24 @@ export function AuthInitializer() {
   });
 
   useEffect(() => {
-    if (userProfile) {
-      setUserProfile(userProfile);
-      setIsAuthenticated(true);
-    } else if (isError) {
-      setIsAuthenticated(false);
-      clearUserProfile();
+    if (!isLoading) {
+      setIsAuthLoading(false);
+      if (userProfile) {
+        setUserProfile(userProfile);
+        setIsAuthenticated(true);
+      } else if (isError) {
+        setIsAuthenticated(false);
+        clearUserProfile();
+      }
     }
   }, [
     userProfile,
     isError,
+    isLoading,
     setUserProfile,
     setIsAuthenticated,
     clearUserProfile,
+    setIsAuthLoading,
   ]);
 
   return null;
