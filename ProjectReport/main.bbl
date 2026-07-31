@@ -1,10 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{postgis2023}
-Regina~O. Obe and Leo~S. Hsu.
-\newblock {\em {PostGIS} in Action}.
-\newblock Manning Publications, Shelter Island, NY, 3rd edition, 2021.
-
 \bibitem{luxen2011realtime}
 Dennis Luxen and Christian Vetter.
 \newblock Real-time routing with {OpenStreetMap} data.
@@ -17,6 +12,11 @@ Sisi Zlatanova, Alias~Abdul Rahman, and Wenzhong Shi.
 \newblock Topological models and frameworks for {3D} spatial objects.
 \newblock {\em Computers \& Geosciences}, 30(4):419--428, 2004.
 
+\bibitem{postgis2023}
+Regina~O. Obe and Leo~S. Hsu.
+\newblock {\em {PostGIS} in Action}.
+\newblock Manning Publications, Shelter Island, NY, 3rd edition, 2021.
+
 \bibitem{json2019rfc}
 Howard Butler, Martin Daly, Alan Doyle, Sean Gillies, Stefan Hagen, and Tim
   Schaub.
@@ -24,16 +24,16 @@ Howard Butler, Martin Daly, Alan Doyle, Sean Gillies, Stefan Hagen, and Tim
 \newblock RFC 7946, Internet Engineering Task Force (IETF), 2016.
 \newblock Available at \url{https://tools.ietf.org/html/rfc7946}.
 
-\bibitem{maplibre2023}
-{MapLibre Contributors}.
-\newblock {MapLibre GL JS}: Open-source {WebGL}-based vector tile maps.
-\newblock \url{https://maplibre.org}, 2023.
-\newblock Accessed: 2025.
-
 \bibitem{jwt2015rfc}
 Michael Jones, John Bradley, and Nat Sakimura.
 \newblock {JSON} web token ({JWT}).
 \newblock RFC 7519, Internet Engineering Task Force (IETF), 2015.
 \newblock Available at \url{https://tools.ietf.org/html/rfc7519}.
+
+\bibitem{maplibre2023}
+{MapLibre Contributors}.
+\newblock {MapLibre GL JS}: Open-source {WebGL}-based vector tile maps.
+\newblock \url{https://maplibre.org}, 2023.
+\newblock Accessed: 2025.
 
 \end{thebibliography}

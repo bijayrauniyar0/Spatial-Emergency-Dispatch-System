@@ -1,21 +1,21 @@
 \pagenumbering{arabic}
 \chapter{Introduction}
 
-\section{Background}
-Manual emergency dispatch relies on human operators to interpret caller locations, consult jurisdiction maps, and contact the correct station by telephone. This triage phase alone can add two to five minutes to response time, a delay that is clinically significant in cardiac emergencies and structurally consequential in fires. Open-source spatial databases such as PostGIS have made it feasible to automate jurisdiction lookup with sub-millisecond containment queries \cite{postgis2023}.
+\section{Introduction}
+Emergency response in modern cities faces a critical bottleneck: the dispatch phase. When a citizen calls 911 or submits an emergency request, operators must manually interpret location descriptions, consult jurisdiction maps, and identify the appropriate emergency station - a process that can add two to five minutes to response time. In cardiac emergencies and structure fires, every second of delay directly impacts patient outcomes and property loss. This project presents the Spatial Emergency Dispatch System (SEDS), an automated, geospatial platform that eliminates manual jurisdiction lookup using PostGIS spatial queries, enables atomic incident assignment via database-level locking to prevent double-claims, and delivers real-time responder notifications through Server-Sent Events and Redis pub/sub.
 
-\section{Problem Definition}
-Nepal has no spatial dispatch platform; operators at Kathmandu and Pokhara centres still use telephone and paper maps to assign incidents to stations. Human triage introduces errors during concurrent incidents and peak demand, directly increasing response times. No open-source, containerised CAD system has been designed for the Nepali operational context \cite{luxen2011realtime}.
+\section{Problem Statement}
+Nepal has no spatial dispatch platform; emergency operators at Kathmandu and Pokhara dispatch centres still rely on telephone and paper maps to assign incidents to stations. Human triage under pressure introduces errors during concurrent incidents and peak demand, directly increasing response times and reducing responder effectiveness. No open-source, containerised Computer-Aided Dispatch (CAD) system has been designed for the Nepali operational context, leaving municipalities with either expensive proprietary systems or no system at all \cite{luxen2011realtime, zlatanova2004gis}.
 
 \section{Objectives}
-The primary objectives of this project are:
+The primary objectives of SEDS are:
 \begin{enumerate}
   \setlength\itemsep{10pt}
-  \item Build a containerised spatial database using PostgreSQL 16 + PostGIS 3.4 to store station points and zone polygons.
+  \item Build a containerised spatial database using PostgreSQL 16 + PostGIS 3.4 to store station points and service zone polygons.
   \item Implement automated jurisdiction triage via \texttt{ST\_Contains} to match any incident coordinate to its enclosing zone without human intervention.
-  \item Integrate OSRM to compute real road-network routes from an assigned station to an incident scene.
-  \item Provide a live-telemetry layer using Socket.io so responder position streams to the citizen and admin dashboard in real time.
-  \item Enforce role-based access control for Admin, Responder, and Citizen roles secured by JWT cookies and Google OAuth2.
+  \item Prevent race conditions in incident assignment via Postgres row-level locking (\texttt{SELECT FOR UPDATE}) to ensure atomic, non-duplicate claim semantics.
+  \item Deliver real-time status notifications to responders and citizens using Server-Sent Events over Redis pub/sub with 5-second polling fallback.
+  \item Enforce role-based access control for Admin, Responder, and Citizen roles via JWT cookies and Google OAuth2; enable guest citizens to submit SOS requests without prior login.
 \end{enumerate}
 
 \section{Scope and Limitation}
@@ -24,20 +24,34 @@ The primary objectives of this project are:
 SEDS covers the following functional areas:
 \begin{enumerate}
   \setlength\itemsep{10pt}
-  \item \textbf{Authentication:} JWT HTTP-only cookies, bcrypt passwords, email verification, and Google OAuth2.
-  \item \textbf{Station and Zone Management:} Admin CRUD for PostGIS point stations and polygon zones with MapLibre GL drawing tools and GeoJSON upload.
-  \item \textbf{Automated Triage:} \texttt{ST\_Contains} spatial query auto-assigns the correct station when a citizen submits an SOS.
-  \item \textbf{Routing:} OSRM integration computes optimal driving paths over the OpenStreetMap Nepal road network.
-  \item \textbf{Real-Time Telemetry:} Socket.io incident rooms stream responder location and bearing to citizens and admins.
+  \item \textbf{Authentication:} JWT HTTP-only cookies, bcrypt password hashing, email verification, Google OAuth2, and guest auto-provisioning for unauthenticated citizens.
+  \item \textbf{Station and Zone Management:} Admin CRUD for PostGIS point stations and polygon zones using MapLibre GL drawing tools and GeoJSON upload.
+  \item \textbf{Automated Triage:} \texttt{ST\_Contains} spatial query auto-assigns the correct station; fallback to nearest-distance when no zone matches.
+  \item \textbf{Atomic Dispatch:} Postgres row-level locking prevents concurrent claim collisions.
+  \item \textbf{Real-Time Notification:} Server-Sent Events over Redis pub/sub with 5-second polling fallback ensures status updates reach responders and citizens with sub-second latency.
 \end{enumerate}
 
 \subsection{Limitation}
 The current design has the following limitations:
 \begin{enumerate}
   \setlength\itemsep{10pt}
-  \item \textbf{Internet Dependency:} All core functions require active internet on both citizen and responder devices; no offline fallback exists.
+  \item \textbf{Internet Dependency:} All core functions require active internet; no offline fallback exists.
   \item \textbf{GPS Accuracy:} Triage precision is bounded by device GPS quality; urban-canyon errors near zone boundaries can cause misclassification.
-  \item \textbf{OSRM Hosting:} Routing requires a separately maintained OSRM server; service failure disables route computation.
-  \item \textbf{Manual Zone Configuration:} Zone boundaries must be drawn or uploaded by an admin; no automated partitioning is provided.
+  \item \textbf{No Route Navigation:} Responders receive assigned station and incident location but not turn-by-turn navigation; real-time GPS tracking (noted as Step 4 future work) is not implemented.
+  \item \textbf{Manual Zone Configuration:} Zone boundaries must be drawn or uploaded by an admin; no automated partitioning.
   \item \textbf{No PSAP Integration:} SEDS is a standalone web application with no connection to government telephony or legacy dispatch hardware.
 \end{enumerate}
+
+\section{Development Methodology}
+SEDS was developed using Agile methodology with six two-week sprints, daily standups, and continuous integration via GitHub. Agile was chosen for scope evolution in response to technical discoveries: initial scope (Steps 1-2) expanded mid-project to include real-time SSE/Redis notifications (Step 3) without disrupting delivery. Each sprint delivered a complete feature slice (authentication → station management → citizen SOS → responder dispatch → lifecycle transitions) with twice-daily demos and backlog reprioritization based on integration feedback.
+
+\section{Report Organization}
+This report is organized as follows:
+
+\textbf{Chapter 2 (Background Study and Literature Review)} establishes foundational concepts and prior work. It reviews how PostGIS, JWT, and Server-Sent Events are applied to emergency dispatch, and surveys related research on response-time optimization.
+
+\textbf{Chapter 3 (System Analysis and Design)} defines functional and non-functional requirements, models the domain using class, object, state, sequence, and activity diagrams, and specifies system design with component diagram. Algorithm section covers A* pathfinding for responder navigation.
+
+\textbf{Chapter 4 (Implementation and Testing)} describes development phases and tooling, details module implementation (frontend, backend, database, real-time communication), and reports test results including spatial query latency, concurrent claims, and SSE resilience.
+
+\textbf{Chapter 5 (Conclusion and Future Recommendations)} summarizes key achievements and outlines future enhancements (live location tracking, incident history, OSRM routing, mobile apps).

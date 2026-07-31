@@ -1,15 +1,20 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces Gantt Chart of Project Timeline}}{8}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Logical ER Diagram}}{8}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Physical ER Diagram}}{9}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces DFD Level 0}}{9}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces DFD Level 1}}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Gantt Chart of Project Timeline}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Object Diagram - Instance of Incident during active claim (responder 7 on station 3)}}{10}{figure.caption.7}%
+\contentsline {figure}{\numberline {3}{\ignorespaces State Diagram - Incident lifecycle transitions}}{11}{figure.caption.8}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Sequence Diagram - Spatial Emergency Dispatch System}}{12}{figure.caption.9}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Activity Diagram - Incident dispatch process flow from SOS submission through resolution}}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Refinement of classes and objects diagram of personal finance manager}}{14}{figure.caption.11}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Component Diagram - Four-tier architecture with REST/SSE and Pub/Sub}}{15}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6}{\ignorespaces System Operational Flowchart}}{13}{figure.caption.10}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Landing Page - Interactive map with stations and service zones}}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Login Page - Role-based authentication (Admin/Responder)}}{20}{figure.caption.15}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Admin Dashboard - Station management with CRUD operations}}{21}{figure.caption.16}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Add Station Form - Location picker and zone polygon drawing}}{21}{figure.caption.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7}{\ignorespaces Landing Page: Map View with Stations and Zones}}{15}{figure.caption.11}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Login Page}}{15}{figure.caption.12}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Admin Dashboard: Station Management}}{16}{figure.caption.13}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Add Station Form: Location Pin and Zone Drawing}}{16}{figure.caption.14}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Landing Page - Interactive map with stations and service zones}}{30}{figure.caption.22}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Login Page - Role-based authentication (Admin/Responder)}}{30}{figure.caption.23}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Admin Dashboard - Station management with CRUD operations}}{31}{figure.caption.24}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Add Station Form - Location picker and zone polygon drawing}}{32}{figure.caption.25}%

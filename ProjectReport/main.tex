@@ -67,9 +67,9 @@
 % Chapter formatting (bold, 16px ≈ 10.5pt) (16 * 1.5 = 24)
 \titleformat{\chapter}
   {\normalfont\bfseries\fontsize{16pt}{21pt}\selectfont}
-  {\MakeUppercase{\thechapter.}}
-  {1em}                           
-  {\MakeUppercase{#1}}
+  {CHAPTER \thechapter:}
+  {1em}
+  {#1}
 \titlespacing{\chapter}{0pt}{-50pt}{0pt}
 
  % Format for unnumbered chapters (e.g., Abstract, Table of Contents)
@@ -82,7 +82,7 @@
 
 % Section formatting (bold, 14px ≈ 10.5pt) (14 * 1.5 = 21)
 \titleformat{\section}
-    {\normalfont\normalsize\bfseries}{\thesection}{1em}{\fontsize{14pt}{18pt}\selectfont #1}
+    {\normalfont\normalsize\bfseries}{Section \thesection:}{1em}{\fontsize{14pt}{18pt}\selectfont #1}
 \titlespacing{\section}{0pt}{0pt}{0pt}
 
 % Subsection formatting (bold, 12px ≈ 9pt) (12 * 1.5 = 18)
@@ -119,9 +119,20 @@
 \let\cleardoublepage\clearpage
 \usepackage{placeins}
 
+\newcommand{\figplaceholder}[3]{% #1=width, #2=height, #3=label text
+  \begin{tikzpicture}
+    \draw[dashed, thick, gray] (0,0) rectangle (#1,#2);
+    \draw[dashed, gray] (0,0) -- (#1,#2);
+    \draw[dashed, gray] (0,#2) -- (#1,0);
+    \node[align=center, text width=0.8*#1, gray] at (#1/2,#2/2) {\itshape #3};
+  \end{tikzpicture}%
+}
+
 \begin{document}
 
 \include{section/1-cover}
+\include{section/1a-supervisor-recommendation}
+\include{section/1b-letter-of-approval}
 \include{section/2-abstract}
 
 \tableofcontents
@@ -129,16 +140,22 @@
 \renewcommand\cftfigafterpnum{\vskip5pt\par}
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
-\include{section/abbreviations}
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\clearpage
+\input{section/abbreviations}
+\clearpage
 
 % Chapter begin
 \include{section/ch1-introduction}
 \include{section/ch2-background-study-and-literature-review}
-\include{section/ch3-system-analysis.tex}
-\include{section/ch4-system-design}
-\include{section/ch5-progress-report}
+\include{section/ch3-system-analysis-and-design}
+\include{section/ch4-implementation-and-testing}
+\include{section/ch5-conclusion-and-future-recommendations}
 
 \bibliographystyle{unsrt}
 \bibliography{references/ref}
 \addcontentsline{toc}{chapter}{References}
+
+\include{section/appendices}
 \end{document}

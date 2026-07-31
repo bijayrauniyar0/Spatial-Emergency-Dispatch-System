@@ -74,8 +74,9 @@ A real-time spatial emergency dispatch platform that connects citizens in need w
 #### Step 4: Live Location Tracking (Future)
 - **Responder Location Broadcast**: Responder's live location streamed to the citizen (WebSocket or frequent SSE updates)
 - **Citizen Location Sharing**: Citizen's location shareable with assigned responder
-- **ETA Calculation**: Distance-based ETA to the incident location
-- **Route Visualization**: Show responder's movement toward the incident on the map
+- **ETA Calculation**: A* pathfinding algorithm for optimal route distance calculation and real-time ETA estimation
+- **Route Visualization**: Show responder's movement toward the incident on the map using A* computed paths
+- **Distance Monitoring**: Real-time distance tracking between responder and incident location using A* heuristic updates
 
 #### Step 5: Completion & History (Future)
 - **Incident History**: Past incidents viewable by admins/responders, searchable by date/category/responder
@@ -129,6 +130,7 @@ Spatial-Emergency-Dispatch-System/
 6. **Polling + SSE Fallback**: Not relying on SSE alone (Redis pub/sub has no message replay), so 5-second polling persists as safety net.
 7. **Zustand for State**: Lightweight, no boilerplate, good for both auth and responder dashboard state; easy to invoke from SSE handlers.
 8. **MapLibre GL (not Mapbox)**: Open-source alternative, avoids paid Mapbox API for tiles + routing.
+9. **A* Pathfinding Algorithm**: For Step 4 live location tracking, A* provides optimal route distance calculations for accurate ETA prediction and responder monitoring. Enables efficient pathfinding on road networks without relying on expensive external routing APIs.
 
 ---
 

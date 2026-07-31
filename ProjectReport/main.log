@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  2 JUN 2026 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  1 AUG 2026 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -926,8 +926,8 @@ Package chngcntr Info: \counterwithout already defined.
 (/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 12
-2.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 13
+1.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -937,31 +937,34 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count355
 \l__pdf_internal_box=\box76
 )
-(./main.aux (./section/1-cover.aux) (./section/2-abstract.aux)
-(./section/abbreviations.aux) (./section/ch1-introduction.aux)
+(./main.aux (./section/1-cover.aux) (./section/1a-supervisor-recommendation.aux
+) (./section/1b-letter-of-approval.aux) (./section/2-abstract.aux)
+(./section/ch1-introduction.aux)
 (./section/ch2-background-study-and-literature-review.aux)
-(./section/ch3-system-analysis.aux) (./section/ch4-system-design.aux)
-(./section/ch5-progress-report.aux))
+(./section/ch3-system-analysis-and-design.aux)
+(./section/ch4-implementation-and-testing.aux)
+(./section/ch5-conclusion-and-future-recommendations.aux)
+(./section/appendices.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 122.
-LaTeX Font Info:    ... okay on input line 122.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 131.
+LaTeX Font Info:    ... okay on input line 131.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1019,19 +1022,19 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 122.
-Package microtype Info: Applying patch `item' on input line 122.
-Package microtype Info: Applying patch `toc' on input line 122.
-Package microtype Info: Applying patch `eqnum' on input line 122.
-Package microtype Info: Applying patch `footnote' on input line 122.
-Package microtype Info: Applying patch `verbatim' on input line 122.
+LaTeX Info: Redefining \microtypecontext on input line 131.
+Package microtype Info: Applying patch `item' on input line 131.
+Package microtype Info: Applying patch `toc' on input line 131.
+Package microtype Info: Applying patch `eqnum' on input line 131.
+Package microtype Info: Applying patch `footnote' on input line 131.
+Package microtype Info: Applying patch `verbatim' on input line 131.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 122.
+LaTeX Info: Redefining \showhyphens on input line 131.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1046,7 +1049,7 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
 )
-Package hyperref Info: Link coloring OFF on input line 122.
+Package hyperref Info: Link coloring OFF on input line 131.
  (./main.out)
 (./main.out)
 \@outlinefile=\write4
@@ -1055,7 +1058,7 @@ Package hyperref Info: Link coloring OFF on input line 122.
 \openout2 = `section/1-cover.aux'.
 
  (./section/1-cover.tex
-<Graphics/tu-logo.png, id=151, 216.81pt x 234.8775pt>
+<Graphics/tu-logo.png, id=236, 216.81pt x 234.8775pt>
 File: Graphics/tu-logo.png Graphic file (type png)
 <use Graphics/tu-logo.png>
 Package pdftex.def Info: Graphics/tu-logo.png  used on input line 9.
@@ -1065,6 +1068,89 @@ Package pdftex.def Info: Graphics/tu-logo.png  used on input line 9.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc} <./Graphics/tu-logo.png>])
+\openout2 = `section/1a-supervisor-recommendation.aux'.
+
+ (./section/1a-supervisor-recommendation.tex
+File: Graphics/tu-logo.png Graphic file (type png)
+<use Graphics/tu-logo.png>
+Package pdftex.def Info: Graphics/tu-logo.png  used on input line 5.
+(pdftex.def)             Requested size: 86.72246pt x 86.7241pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.40 \end{titlepage}
+                     [1
+
+
+
+])
+\openout2 = `section/1b-letter-of-approval.aux'.
+
+ (./section/1b-letter-of-approval.tex
+File: Graphics/tu-logo.png Graphic file (type png)
+<use Graphics/tu-logo.png>
+Package pdftex.def Info: Graphics/tu-logo.png  used on input line 5.
+(pdftex.def)             Requested size: 86.72246pt x 86.7241pt.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 30.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
+ 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `ztmcm' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
+ 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
+ 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
+ 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
+0.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8.14006> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.60007> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.48 \end{titlepage}
+                     [1
+
+
+
+])
 \openout2 = `section/2-abstract.aux'.
 
  (./section/2-abstract.tex
@@ -1078,59 +1164,33 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 5.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 5.
 ) [1
 
 
 
 
 ] (./main.toc
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
-File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `ztmcm' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
-File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
-File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
-File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
-)
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [2
+[2
 
 
 
@@ -1138,29 +1198,27 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3]
-(./main.lof)
+ [3] [4] (./main.lof)
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- [4
+ [5
 
-]
-\openout2 = `section/abbreviations.aux'.
+] (./main.lot)
+\tf@lot=\write7
+\openout7 = `main.lot'.
 
- (./section/abbreviations.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 31--132
+ [6
+
+] (./section/abbreviations.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 22--147
 
  []
 
-[5
+[7
 
 
 ]
-Overfull \vbox (8.99313pt too high) has occurred while \output is active []
-
-
-[6]
 \openout2 = `section/ch1-introduction.aux'.
 
  (./section/ch1-introduction.tex
@@ -1170,212 +1228,254 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.19 \end{enumerate}
-                     [1
+l.17   \item D
+              eliver real-time status notifications to responders and citize...
+[1
 
 
 
-
-] [2]) [3]
+] [2]
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 46.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 46.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 46.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 46.
+ [3]) [4]
 \openout2 = `section/ch2-background-study-and-literature-review.aux'.
 
-
-(./section/ch2-background-study-and-literature-review.tex
+ (./section/ch2-background-study-and-literature-review.tex
 Chapter 2.
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-7.
+2.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [4
+) [5
 
 
 
 
-]) [5]
-\openout2 = `section/ch3-system-analysis.aux'.
+]) [6]
+\openout2 = `section/ch3-system-analysis-and-design.aux'.
 
 
-(./section/ch3-system-analysis.tex
+(./section/ch3-system-analysis-and-design.tex
 Chapter 3.
-[6
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 20.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 20.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 20.
+[7
 
 
 
 
 ]
-<Graphics/gannt-chart.png, id=300, 584.1825pt x 346.29375pt>
+<Graphics/gannt-chart.png, id=441, 584.1825pt x 346.29375pt>
 File: Graphics/gannt-chart.png Graphic file (type png)
 <use Graphics/gannt-chart.png>
-Package pdftex.def Info: Graphics/gannt-chart.png  used on input line 39.
-(pdftex.def)             Requested size: 434.90039pt x 257.81213pt.
+Package pdftex.def Info: Graphics/gannt-chart.png  used on input line 46.
+(pdftex.def)             Requested size: 413.15404pt x 244.91914pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7]
-<Graphics/ER.pdf, id=306, 628.78113pt x 187.82974pt>
-File: Graphics/ER.pdf Graphic file (type pdf)
-<use Graphics/ER.pdf>
-Package pdftex.def Info: Graphics/ER.pdf  used on input line 49.
-(pdftex.def)             Requested size: 391.40768pt x 116.92612pt.
-<Graphics/phy_er.png, id=307, 1204.5pt x 585.18625pt>
-File: Graphics/phy_er.png Graphic file (type png)
-<use Graphics/phy_er.png>
-Package pdftex.def Info: Graphics/phy_er.png  used on input line 57.
-(pdftex.def)             Requested size: 434.90039pt x 211.29193pt.
+[8]
+<Graphics/object-diagram.png, id=447, 808.01875pt x 798.985pt>
+File: Graphics/object-diagram.png Graphic file (type png)
+<use Graphics/object-diagram.png>
+Package pdftex.def Info: Graphics/object-diagram.png  used on input line 60.
+(pdftex.def)             Requested size: 260.94289pt x 258.0212pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8 <./Graphics/gannt-chart.png> <./Graphics/ER.pdf>]
-<Graphics/level0.pdf, id=326, 519.50587pt x 329.19588pt>
-File: Graphics/level0.pdf Graphic file (type pdf)
-<use Graphics/level0.pdf>
-Package pdftex.def Info: Graphics/level0.pdf  used on input line 67.
-(pdftex.def)             Requested size: 442.19246pt x 280.19846pt.
-
-Overfull \hbox (7.29207pt too wide) in paragraph at lines 67--68
- [][] 
- []
-
-[9 <./Graphics/phy_er.png> <./Graphics/level0.pdf>]
-<Graphics/level1.pdf, id=343, 561.91528pt x 409.68056pt>
-File: Graphics/level1.pdf Graphic file (type pdf)
-<use Graphics/level1.pdf>
-Package pdftex.def Info: Graphics/level1.pdf  used on input line 79.
-(pdftex.def)             Requested size: 384.33519pt x 280.19846pt.
-) [10 <./Graphics/level1.pdf>]
-\openout2 = `section/ch4-system-design.aux'.
-
- (./section/ch4-system-design.tex
-Chapter 4.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 21.
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
-(RS)
-) [11
+[9 <./Graphics/gannt-chart.png>]
+<Graphics/state-diagram.png, id=454, 497.86pt x 1007.765pt>
+File: Graphics/state-diagram.png Graphic file (type png)
+<use Graphics/state-diagram.png>
+Package pdftex.def Info: Graphics/state-diagram.png  used on input line 72.
+(pdftex.def)             Requested size: 239.19653pt x 484.18303pt.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
+[10 <./Graphics/object-diagram.png>] [11 <./Graphics/state-diagram.png>]
+<Graphics/sequence-diagram.png, id=466, 1255.69125pt x 1126.2075pt>
+File: Graphics/sequence-diagram.png Graphic file (type png)
+<use Graphics/sequence-diagram.png>
+Package pdftex.def Info: Graphics/sequence-diagram.png  used on input line 84.
+(pdftex.def)             Requested size: 413.15404pt x 370.54982pt.
 
-]
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 22.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 22.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 23.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 23.
-LaTeX Info: Symbol \textrightarrow not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 23.
+[12
 
-Overfull \hbox (2.08418pt too wide) in paragraph at lines 23--24
-\T1/ptm/m/n/12 (-20) ENUM(PENDING/RESPONDING/RESOLVED), lo-ca-tion GE-OM-E-TRY(
-Point, 4326). 
- []
-
-<Graphics/flow.png, id=361, 462.72874pt x 894.34125pt>
+ <./Graphics/sequence-diagram.png>]
+<Graphics/flow.png, id=472, 462.72874pt x 894.34125pt>
 File: Graphics/flow.png Graphic file (type png)
 <use Graphics/flow.png>
-Package pdftex.def Info: Graphics/flow.png  used on input line 30.
-(pdftex.def)             Requested size: 304.42894pt x 588.39748pt.
-[12]) [13 <./Graphics/flow.png>]
-\openout2 = `section/ch5-progress-report.aux'.
+Package pdftex.def Info: Graphics/flow.png  used on input line 96.
+(pdftex.def)             Requested size: 195.70384pt x 378.25455pt.
+ [13 <./Graphics/flow.png>]
+<Graphics/phy_er.png, id=478, 1204.5pt x 585.18625pt>
+File: Graphics/phy_er.png Graphic file (type png)
+<use Graphics/phy_er.png>
+Package pdftex.def Info: Graphics/phy_er.png  used on input line 110.
+(pdftex.def)             Requested size: 413.15404pt x 200.72867pt.
+<Graphics/component-diagram.png, id=479, 1582.91376pt x 1499.6025pt>
+File: Graphics/component-diagram.png Graphic file (type png)
+<use Graphics/component-diagram.png>
+Package pdftex.def Info: Graphics/component-diagram.png  used on input line 122
+.
+(pdftex.def)             Requested size: 326.1753pt x 308.99936pt.
 
- (./section/ch5-progress-report.tex
-Chapter 5.
-<./Graphics/landing-page.png, id=373, 1927.2pt x 970.62625pt>
-File: ./Graphics/landing-page.png Graphic file (type png)
-<use ./Graphics/landing-page.png>
-Package pdftex.def Info: ./Graphics/landing-page.png  used on input line 19.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14 <./Graphics/phy_er.png>] [15 <./Graphics/component-diagram.png>]) [16]
+\openout2 = `section/ch4-implementation-and-testing.aux'.
+
+
+(./section/ch4-implementation-and-testing.tex
+Chapter 4.
+[17
+
+
+
+
+] [18]
+<Graphics/landing-page.png, id=517, 1927.2pt x 970.62625pt>
+File: Graphics/landing-page.png Graphic file (type png)
+<use Graphics/landing-page.png>
+Package pdftex.def Info: Graphics/landing-page.png  used on input line 61.
 (pdftex.def)             Requested size: 434.90039pt x 219.03314pt.
-[14
+ [19]
+<Graphics/login-page.png, id=522, 1923.185pt x 968.61874pt>
+File: Graphics/login-page.png Graphic file (type png)
+<use Graphics/login-page.png>
+Package pdftex.def Info: Graphics/login-page.png  used on input line 68.
+(pdftex.def)             Requested size: 434.90039pt x 219.0383pt.
+<Graphics/admin-dashboard.png, id=523, 1927.2pt x 970.62625pt>
+File: Graphics/admin-dashboard.png Graphic file (type png)
+<use Graphics/admin-dashboard.png>
+Package pdftex.def Info: Graphics/admin-dashboard.png  used on input line 77.
+(pdftex.def)             Requested size: 434.90039pt x 219.03314pt.
+ [20 <./Graphics/landing-page.png> <./Graphics/login-page.png>]
+<Graphics/add-station-form.png, id=530, 1927.2pt x 970.62625pt>
+File: Graphics/add-station-form.png Graphic file (type png)
+<use Graphics/add-station-form.png>
+Package pdftex.def Info: Graphics/add-station-form.png  used on input line 84.
+(pdftex.def)             Requested size: 434.90039pt x 219.03314pt.
 
+[21 <./Graphics/admin-dashboard.png> <./Graphics/add-station-form.png>]
+[22]
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 132.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 132.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 166.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 166.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 166.
+ [23] [24] [25]
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 206.
+) [26]
+\openout2 = `section/ch5-conclusion-and-future-recommendations.aux'.
+
+
+(./section/ch5-conclusion-and-future-recommendations.tex
+Chapter 5.
+LaTeX Info: Symbol \textrightarrow not provided by
+            font family ptm in TS1 encoding.
+            Default family used instead on input line 5.
+[27
+
+
+
+
+]) [28] (./main.bbl) [29
 
 
 
 ]
-<./Graphics/login-page.png, id=378, 1923.185pt x 968.61874pt>
-File: ./Graphics/login-page.png Graphic file (type png)
-<use ./Graphics/login-page.png>
-Package pdftex.def Info: ./Graphics/login-page.png  used on input line 28.
-(pdftex.def)             Requested size: 434.90039pt x 219.0383pt.
- [15 <./Graphics/landing-page.png> <./Graphics/login-page.png>]
-<./Graphics/admin-dashboard.png, id=385, 1927.2pt x 970.62625pt>
-File: ./Graphics/admin-dashboard.png Graphic file (type png)
-<use ./Graphics/admin-dashboard.png>
-Package pdftex.def Info: ./Graphics/admin-dashboard.png  used on input line 39.
+\openout2 = `section/appendices.aux'.
 
-(pdftex.def)             Requested size: 434.90039pt x 219.03314pt.
-<./Graphics/add-station-form.png, id=386, 1927.2pt x 970.62625pt>
-File: ./Graphics/add-station-form.png Graphic file (type png)
-<use ./Graphics/add-station-form.png>
-Package pdftex.def Info: ./Graphics/add-station-form.png  used on input line 48
-.
-(pdftex.def)             Requested size: 434.90039pt x 219.03314pt.
- [16 <./Graphics/admin-dashboard.png> <./Graphics/add-station-form.png>]
-Overfull \hbox (24.38188pt too wide) in paragraph at lines 63--64
-[]\T1/ptm/m/n/12 (-20) PostgreSQL 16 with Post-GIS 3.4 runs in Docker. Sta-tion
- lo-ca-tions are stored as \T1/cmtt/m/n/12 GEOMETRY(Point,
- []
-
-[17]
-Overfull \hbox (7.78278pt too wide) in paragraph at lines 119--119
-[]|\T1/ptm/m/n/12 (-20) /api/v1/admin/stations/geojson|  
- []
+ (./section/appendices.tex
+File: Graphics/landing-page.png Graphic file (type png)
+<use Graphics/landing-page.png>
+Package pdftex.def Info: Graphics/landing-page.png  used on input line 10.
+(pdftex.def)             Requested size: 413.15404pt x 208.07333pt.
+File: Graphics/login-page.png Graphic file (type png)
+<use Graphics/login-page.png>
+Package pdftex.def Info: Graphics/login-page.png  used on input line 23.
+(pdftex.def)             Requested size: 260.94289pt x 131.42297pt.
+ [30
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--119
-[]|\T1/ptm/m/n/12 (+20) POST
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--119
-\T1/ptm/m/n/12 (+20) (cit-i-zen
- []
-
-) [18] [19] (./main.bbl) [20
-
-
-
-] (./main.aux (./section/1-cover.aux)
-(./section/2-abstract.aux) (./section/abbreviations.aux)
+]
+File: Graphics/admin-dashboard.png Graphic file (type png)
+<use Graphics/admin-dashboard.png>
+Package pdftex.def Info: Graphics/admin-dashboard.png  used on input line 36.
+(pdftex.def)             Requested size: 413.15404pt x 208.07333pt.
+File: Graphics/add-station-form.png Graphic file (type png)
+<use Graphics/add-station-form.png>
+Package pdftex.def Info: Graphics/add-station-form.png  used on input line 49.
+(pdftex.def)             Requested size: 326.1753pt x 164.26375pt.
+ [31]) [32]
+(./main.aux (./section/1-cover.aux) (./section/1a-supervisor-recommendation.aux
+) (./section/1b-letter-of-approval.aux) (./section/2-abstract.aux)
 (./section/ch1-introduction.aux)
 (./section/ch2-background-study-and-literature-review.aux)
-(./section/ch3-system-analysis.aux) (./section/ch4-system-design.aux)
-(./section/ch5-progress-report.aux))
+(./section/ch3-system-analysis-and-design.aux)
+(./section/ch4-implementation-and-testing.aux)
+(./section/ch5-conclusion-and-future-recommendations.aux)
+(./section/appendices.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CC504995D89E37FD1461E733FF09F918;4797.
+(rerunfilecheck)             Checksum: 7D501B7C9ED197495934393655F798E6;9350.
  ) 
 Here is how much of TeX's memory you used:
- 28302 strings out of 476182
- 515578 string characters out of 5795596
- 1940975 words of memory out of 5000000
- 49426 multiletter control sequences out of 15000+600000
- 594306 words of font info for 213 fonts, out of 8000000 for 9000
+ 28635 strings out of 476182
+ 523415 string characters out of 5795596
+ 1934975 words of memory out of 5000000
+ 49579 multiletter control sequences out of 15000+600000
+ 622361 words of font info for 308 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,11n,104p,1308b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,104p,1480b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/bijay-codes/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm12
 00.600pk> </home/bijay-codes/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec
-/ectt1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (27 pages, 3855182 bytes).
+/ectt1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (42 pages, 4247851 bytes).
 PDF statistics:
- 508 PDF objects out of 1000 (max. 8388607)
- 393 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
- 40292 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 719 PDF objects out of 1000 (max. 8388607)
+ 572 compressed objects within 6 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 70673 words of extra memory for PDF output out of 74296 (max. 10000000)
 

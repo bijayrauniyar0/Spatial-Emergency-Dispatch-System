@@ -2,18 +2,20 @@ This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: section/1-cover.aux
+A level-1 auxiliary file: section/1a-supervisor-recommendation.aux
+A level-1 auxiliary file: section/1b-letter-of-approval.aux
 A level-1 auxiliary file: section/2-abstract.aux
-A level-1 auxiliary file: section/abbreviations.aux
 A level-1 auxiliary file: section/ch1-introduction.aux
 A level-1 auxiliary file: section/ch2-background-study-and-literature-review.aux
-A level-1 auxiliary file: section/ch3-system-analysis.aux
-A level-1 auxiliary file: section/ch4-system-design.aux
-A level-1 auxiliary file: section/ch5-progress-report.aux
+A level-1 auxiliary file: section/ch3-system-analysis-and-design.aux
+A level-1 auxiliary file: section/ch4-implementation-and-testing.aux
+A level-1 auxiliary file: section/ch5-conclusion-and-future-recommendations.aux
 The style file: unsrt.bst
+A level-1 auxiliary file: section/appendices.aux
 Database file #1: references/ref.bib
 You've used 6 entries,
             1791 wiz_defined-function locations,
-            497 strings with 4799 characters,
+            499 strings with 4915 characters,
 and the built_in function-call counts, 1335 in all, are:
 = -- 126
 > -- 62
