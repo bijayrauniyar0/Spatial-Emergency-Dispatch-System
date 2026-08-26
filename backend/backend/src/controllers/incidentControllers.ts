@@ -143,6 +143,14 @@ export const createIncident = async (
       ],
     });
 
+    // Notify responders at the station about the new incident
+    const { publishStationIncidentUpdate } = await import('../services/sseService');
+    publishStationIncidentUpdate(stationId, {
+      type: 'incident_created',
+      incidentId: incident.id,
+      category,
+    });
+
     res.status(201).json({
       message: 'Incident created successfully',
       data: incidentWithStation,
@@ -292,11 +300,11 @@ export const getMyTask = async (
       return;
     }
 
-    // Get current responding task
+    // Get current active task (RESPONDING or ARRIVED)
     const incident = await Incident.findOne({
       where: {
         responder_id: responder.id,
-        status: 'RESPONDING',
+        status: ['RESPONDING', 'ARRIVED'],
       },
       include: [
         {
@@ -424,10 +432,16 @@ export const claimIncident = async (
         ],
       });
 
-      // Notify citizen that their incident has been claimed
+      // Notify citizen and station
       publishCitizenIncidentUpdate(incident.citizen_id, {
         type: 'incident_claimed',
         status: 'RESPONDING',
+      });
+
+      const { publishStationIncidentUpdate } = await import('../services/sseService');
+      publishStationIncidentUpdate(responder.station_id, {
+        type: 'incident_claimed',
+        incidentId: id,
       });
 
       res.status(200).json({
@@ -449,6 +463,394 @@ export const claimIncident = async (
     } else {
       res.status(500).json({
         error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const arriveIncident = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    // Find responder for current user
+    const responder = await Responder.findOne({
+      where: { user_id: req.user.id },
+      include: [{ model: Station, attributes: ['id', 'name', 'category'] }],
+    });
+
+    if (!responder) {
+      res.status(404).json({
+        error: 'Responder profile not found. Please contact admin.',
+      });
+      return;
+    }
+
+    // Use transaction with row lock
+    const transaction = await sequelize.transaction();
+
+    try {
+      const incident = await Incident.findByPk(id, {
+        lock: transaction.LOCK.UPDATE,
+        transaction,
+      });
+
+      if (!incident) {
+        await transaction.rollback();
+        res.status(404).json({
+          error: 'Incident not found',
+        });
+        return;
+      }
+
+      // Validate responder is assigned to this incident
+      if (incident.responder_id !== responder.id) {
+        await transaction.rollback();
+        res.status(403).json({
+          error: 'You are not assigned to this incident',
+        });
+        return;
+      }
+
+      // Validate incident is in RESPONDING state
+      if (incident.status !== 'RESPONDING') {
+        await transaction.rollback();
+        res.status(409).json({
+          error: 'Incident must be in RESPONDING state to mark as arrived',
+        });
+        return;
+      }
+
+      // Mark as ARRIVED
+      incident.status = 'ARRIVED';
+      await incident.save({ transaction });
+
+      await transaction.commit();
+
+      // Notify citizen
+      publishCitizenIncidentUpdate(incident.citizen_id, {
+        type: 'incident_arrived',
+        status: 'ARRIVED',
+      });
+
+      // Notify other responders at station
+      const { publishStationIncidentUpdate } = await import('../services/sseService');
+      publishStationIncidentUpdate(responder.station_id, {
+        type: 'incident_arrived',
+        incidentId: id,
+      });
+
+      // Re-fetch with associations for response
+      const arrivedIncident = await Incident.findByPk(id, {
+        include: [
+          {
+            model: Station,
+            attributes: ['id', 'name', 'category'],
+          },
+          {
+            model: User,
+            as: 'citizen',
+            attributes: ['id', 'name', 'email', 'number', 'oauth_provider'],
+          },
+          {
+            model: Responder,
+            attributes: ['id', 'status'],
+            include: [
+              {
+                model: User,
+                attributes: ['id', 'name', 'number'],
+              },
+            ],
+          },
+        ],
+      });
+
+      res.status(200).json({
+        message: 'Incident marked as arrived',
+        data: arrivedIncident,
+      });
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
+    }
+  } catch (error) {
+    console.error('Error marking incident as arrived:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const resolveIncident = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    // Find responder for current user
+    const responder = await Responder.findOne({
+      where: { user_id: req.user.id },
+      include: [{ model: Station, attributes: ['id', 'name', 'category'] }],
+    });
+
+    if (!responder) {
+      res.status(404).json({
+        error: 'Responder profile not found. Please contact admin.',
+      });
+      return;
+    }
+
+    // Use transaction with row lock
+    const transaction = await sequelize.transaction();
+
+    try {
+      const incident = await Incident.findByPk(id, {
+        lock: transaction.LOCK.UPDATE,
+        transaction,
+      });
+
+      if (!incident) {
+        await transaction.rollback();
+        res.status(404).json({
+          error: 'Incident not found',
+        });
+        return;
+      }
+
+      // Validate responder is assigned to this incident
+      if (incident.responder_id !== responder.id) {
+        await transaction.rollback();
+        res.status(403).json({
+          error: 'You are not assigned to this incident',
+        });
+        return;
+      }
+
+      // Validate incident is in ARRIVED state
+      if (incident.status !== 'ARRIVED') {
+        await transaction.rollback();
+        res.status(409).json({
+          error: 'Incident must be in ARRIVED state to mark as resolved',
+        });
+        return;
+      }
+
+      // Mark as RESOLVED and set responder back to AVAILABLE
+      incident.status = 'RESOLVED';
+      await incident.save({ transaction });
+
+      responder.status = 'AVAILABLE';
+      await responder.save({ transaction });
+
+      await transaction.commit();
+
+      // Notify citizen
+      publishCitizenIncidentUpdate(incident.citizen_id, {
+        type: 'incident_resolved',
+        status: 'RESOLVED',
+      });
+
+      // Notify other responders at station
+      const { publishStationIncidentUpdate } = await import('../services/sseService');
+      publishStationIncidentUpdate(responder.station_id, {
+        type: 'incident_resolved',
+        incidentId: id,
+      });
+
+      // Re-fetch with associations for response
+      const resolvedIncident = await Incident.findByPk(id, {
+        include: [
+          {
+            model: Station,
+            attributes: ['id', 'name', 'category'],
+          },
+          {
+            model: User,
+            as: 'citizen',
+            attributes: ['id', 'name', 'email', 'number', 'oauth_provider'],
+          },
+          {
+            model: Responder,
+            attributes: ['id', 'status'],
+            include: [
+              {
+                model: User,
+                attributes: ['id', 'name', 'number'],
+              },
+            ],
+          },
+        ],
+      });
+
+      res.status(200).json({
+        message: 'Incident marked as resolved',
+        data: resolvedIncident,
+      });
+    } catch (error) {
+      await transaction.rollback();
+      throw error;
+    }
+  } catch (error) {
+    console.error('Error marking incident as resolved:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const getIncidentById = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    // Find responder for current user
+    const responder = await Responder.findOne({
+      where: { user_id: req.user.id },
+      include: [{ model: Station, attributes: ['id', 'name', 'category'] }],
+    });
+
+    if (!responder) {
+      res.status(404).json({
+        error: 'Responder profile not found. Please contact admin.',
+      });
+      return;
+    }
+
+    // Fetch incident with all associations
+    const incident = await Incident.findByPk(id, {
+      include: [
+        {
+          model: Station,
+          attributes: ['id', 'name', 'category'],
+        },
+        {
+          model: User,
+          as: 'citizen',
+          attributes: ['id', 'name', 'email', 'number', 'oauth_provider'],
+        },
+        {
+          model: Responder,
+          attributes: ['id', 'status'],
+          include: [
+            {
+              model: User,
+              attributes: ['id', 'name', 'number'],
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!incident) {
+      res.status(404).json({
+        error: 'Incident not found',
+      });
+      return;
+    }
+
+    // Validate incident belongs to responder's station
+    if (incident.station_id !== responder.station_id) {
+      res.status(403).json({
+        error: 'This incident is not assigned to your station',
+      });
+      return;
+    }
+
+    res.status(200).json({
+      message: 'Incident details retrieved',
+      data: incident,
+    });
+  } catch (error) {
+    console.error('Error fetching incident:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
+export const streamStationIncidents = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    // Find responder for current user
+    const responder = await Responder.findOne({
+      where: { user_id: req.user.id },
+      include: [{ model: Station, attributes: ['id', 'name', 'category'] }],
+    });
+
+    if (!responder) {
+      res.status(404).json({
+        error: 'Responder profile not found. Please contact admin.',
+      });
+      return;
+    }
+
+    // Import dynamically to avoid issues at module load time
+    const redisClientDefault = await import('../config/redis');
+    const redisClient = redisClientDefault.default;
+    const subClient = redisClient.duplicate();
+
+    // Attempt to connect before sending headers
+    await subClient.connect();
+
+    // Only set SSE headers after successful Redis connection
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      Connection: 'keep-alive',
+    });
+
+    const channelName = `station:${responder.station_id}:incidents`;
+    await subClient.subscribe(channelName, (message: string) => {
+      res.write(`data: ${message}\n\n`);
+    });
+
+    // Heartbeat to keep connection alive
+    const heartbeatInterval = setInterval(() => {
+      res.write(':heartbeat\n\n');
+    }, 20000);
+
+    // Cleanup on client disconnect
+    req.on('close', async () => {
+      clearInterval(heartbeatInterval);
+      await subClient.unsubscribe(channelName);
+      await subClient.quit();
+    });
+  } catch (error) {
+    console.error('Error setting up station SSE stream:', error);
+    if (!res.headersSent) {
+      res.status(500).json({
+        error: 'Failed to establish stream',
       });
     }
   }

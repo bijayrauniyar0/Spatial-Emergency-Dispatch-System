@@ -4,10 +4,10 @@ import { Toaster } from "sonner";
 
 import { Navbar } from "@/components/common";
 import { TooltipProvider } from "@/components/primitives/tooltip";
-import { AuthInitializer } from "@/lib/authInitializer";
-import { ResponderInitializer } from "@/lib/responderInitializer";
 import { RequestsButton } from "@/features/responder/components/RequestsButton";
+import { AuthInitializer } from "@/lib/authInitializer";
 import QueryProvider from "@/lib/queryProviders";
+import { ResponderInitializer } from "@/lib/responderInitializer";
 
 import "./globals.css";
 

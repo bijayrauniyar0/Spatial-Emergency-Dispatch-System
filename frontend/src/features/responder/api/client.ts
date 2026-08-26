@@ -33,4 +33,28 @@ export const responderDashboardClient = {
     }>(`/incidents/${incidentId}/claim`);
     return response.data.data;
   },
+
+  async arriveIncident(incidentId: string): Promise<StationQueueIncident> {
+    const response = await api.patch<{
+      message: string;
+      data: StationQueueIncident;
+    }>(`/incidents/${incidentId}/arrive`);
+    return response.data.data;
+  },
+
+  async resolveIncident(incidentId: string): Promise<StationQueueIncident> {
+    const response = await api.patch<{
+      message: string;
+      data: StationQueueIncident;
+    }>(`/incidents/${incidentId}/resolve`);
+    return response.data.data;
+  },
+
+  async getIncidentById(incidentId: string): Promise<StationQueueIncident> {
+    const response = await api.get<{
+      message: string;
+      data: StationQueueIncident;
+    }>(`/incidents/${incidentId}`);
+    return response.data.data;
+  },
 };

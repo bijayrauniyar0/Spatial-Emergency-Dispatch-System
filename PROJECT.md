@@ -34,7 +34,7 @@ A real-time spatial emergency dispatch platform that connects citizens in need w
 
 #### Step 3: Responder Dispatch + Global Queue Access
 - **Polling Dashboard**: 5-second auto-refresh of station queue + current task
-- **Atomic Claim (Double-Claim Prevention)**: `PATCH /incidents/:id/claim` with Postgres row-level locking prevents two responders from claiming the same incident
+- **Atomic Claim (Double-Claim Prevention)**: `PATCH /incidents/:id/claim` with Postgres row-level locking prevents two responders from claiming the same incident (fixed via transaction-scoped lock without `include`, re-fetch after commit)
 - **Station Queue**: Responders see pending incidents at their station (category, time only — no citizen info yet)
 - **Current Task View**: Shows the responder's claimed incident with responder action buttons (in-progress)
 - **Map Radar Visualization**: Pulsing concentric rings on map show all pending incidents at the responder's station in real-time
@@ -42,34 +42,32 @@ A real-time spatial emergency dispatch platform that connects citizens in need w
 - **Role-Based Redirect**: Login redirects admin → `/admin`, responder/citizen → `/` (home)
 - **Guest Citizen Handling**: Detects guest users and shows "Guest — no contact info" instead of fake email
 
-#### Step 3 Extension (In Planning): Real-Time SSE + Full Lifecycle
-- **Incident Lifecycle**: `PENDING → RESPONDING → ARRIVED → RESOLVED` (4 status stages)
-- **Responder Task Locking**: Responder with an active task sees ONLY that task (not the queue) until marked resolved
+#### Step 3 Extension (Complete): Real-Time SSE + Full Lifecycle
+- **Incident Lifecycle**: `PENDING → RESPONDING → ARRIVED → RESOLVED` (4 status stages, `PATCH /:id/arrive` and `PATCH /:id/resolve` endpoints)
+- **Responder Task Locking**: `has_active_task` updated to check `['RESPONDING', 'ARRIVED']` → responders stay locked to task through arrival, back to AVAILABLE on resolve
+- **Responder Actions**: `PATCH /:id/arrive` and `PATCH /:id/resolve` endpoints with atomic locking; resolve auto-sets responder status to AVAILABLE
 - **SSE Real-Time Notifications**:
-  - Citizens instantly notified when their request is claimed/arrived/resolved (no polling delay)
-  - Responders instantly notified when a new incident arrives at their station (auto-open modal + highlight)
-- **Responder Actions**: Mark task as ARRIVED, then RESOLVED (frees them back to AVAILABLE, re-enables queue visibility)
-- **Persistent Polling Fallback**: 5-second polling persists alongside SSE as a safety net (Redis pub/sub has no replay)
-- **Map Popup Claim**: Click a radar ring → popup with citizen details + direct Claim button (no modal needed)
-- **Redis Pub/Sub**: Controllers publish events (incident created, status changed) → Redis fan-out to SSE subscribers
+  - Citizens: `GET /incidents/stream` notified instantly on claim/arrive/resolve (no polling delay)
+  - Responders: `GET /incidents/station-stream` notified on new incidents, auto-open modal + highlight new row (fades after 5s)
+- **Station-Side SSE Stream**: `GET /incidents/station-stream` with `publishStationIncidentUpdate` service, wired in createIncident/claimIncident/arriveIncident/resolveIncident
+- **Persistent Polling Fallback**: 5-second polling on both sides persists as SSE safety net
+- **Map Popup Claim**: Click radar ring → MapLibre popup with citizen details + Claim button (no modal overhead)
+- **CitizenInfoCard Component**: Reusable card extracted for use in detail view + map popup
+- **Frontend Lifecycle UI**: arrive/resolve action buttons in IncidentDetailView (conditional on status)
 
 ---
 
 ### 🔄 In-Progress / Planned Features
 
-#### Step 3 Extension (Active):
-- [ ] Fix `claimIncident` Postgres `FOR UPDATE` bug (lock without includes, re-fetch after)
-- [ ] Extend `status` ENUM to include `ARRIVED`
-- [ ] Implement `PATCH /:id/arrive` and `PATCH /:id/resolve` responder action endpoints
-- [ ] Build SSE service layer on top of Redis pub/sub
-- [ ] Add citizen SSE stream (`GET /incidents/stream`) with reactive status updates
-- [ ] Add responder SSE stream (`GET /incidents/station-stream`) with auto-modal-open + highlight
-- [ ] Implement map popup claim (new `GET /incidents/:id` detail endpoint)
-- [ ] Extend frontend stores (dashboardStore, uiStore) with lifecycle actions + highlight state
-- [ ] Add arrive/resolve buttons to IncidentDetailView
-- [ ] Build CitizenInfoCard component (reused in detail view + map popup)
-- [ ] Integrate EventSource hooks on both citizen and responder sides
-- [ ] Test SSE reconnect resilience + polling fallback
+**Testing Checklist for Step 3 Extension:**
+- [ ] **Lifecycle Flow**: Submit incident → responder claims → marks arrived → marks resolved → responder back to AVAILABLE and queue visible
+- [ ] **Task Locking**: Claim while already on task → 409 Conflict; resolve → polling resumes, new queue visible
+- [ ] **SSE Responder**: New incident → modal auto-opens + row highlighted + fades after 5s (no manual refresh needed)
+- [ ] **SSE Citizen**: Submit request, responder claims → dialog shows "on the way" within 1s; arrive/resolve updates within 1s
+- [ ] **Reconnect Safety**: Kill backend mid-SSE → restart → both sides catch up via refetch (no stuck state)
+- [ ] **Map Popup Claim**: Click radar ring → popup with citizen details + claim button; claim succeeds, queue updates
+- [ ] **Polling Fallback**: Disable SSE endpoint → polling still catches up within 5s on both sides
+- [ ] **Redis Cleanup**: Open/close SSE connections → no duplicate Redis clients (check `CLIENT LIST`)
 
 #### Step 4: Live Location Tracking (Future)
 - **Responder Location Broadcast**: Responder's live location streamed to the citizen (WebSocket or frequent SSE updates)
@@ -208,5 +206,5 @@ services:
 
 ---
 
-**Last Updated**: 2026-07-30  
-**Status**: Step 3 Extension in development; Steps 1-2 complete
+**Last Updated**: 2026-08-26  
+**Status**: Step 3 Extension complete (awaiting manual testing); Steps 1-2 complete

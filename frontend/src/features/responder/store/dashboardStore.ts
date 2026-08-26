@@ -17,6 +17,8 @@ interface DashboardStoreActions {
   fetchProfile: () => Promise<void>;
   fetchMyTask: () => Promise<void>;
   claim: (incidentId: string) => Promise<void>;
+  arrive: (incidentId: string) => Promise<void>;
+  resolve: (incidentId: string) => Promise<void>;
 }
 
 type DashboardStore = DashboardStoreState & DashboardStoreActions;
@@ -88,6 +90,41 @@ const useDashboardStore = create<DashboardStore>()(
             error?.response?.data?.message ||
             error?.message ||
             "Failed to claim incident";
+          set({ error: errorMsg });
+          throw error;
+        }
+      },
+
+      arrive: async (incidentId: string) => {
+        try {
+          const arrivedIncident = await responderDashboardClient.arriveIncident(incidentId);
+          set({ error: null });
+          // Update myTask with new status
+          set({ myTask: arrivedIncident });
+        } catch (error: any) {
+          const errorMsg =
+            error?.response?.data?.message ||
+            error?.message ||
+            "Failed to mark incident as arrived";
+          set({ error: errorMsg });
+          throw error;
+        }
+      },
+
+      resolve: async (incidentId: string) => {
+        try {
+          await responderDashboardClient.resolveIncident(incidentId);
+          set({ error: null });
+          // Clear current task
+          set({ myTask: null });
+          // Refetch profile to update has_active_task (resumes polling in responderInitializer)
+          const profile = await responderDashboardClient.getMyProfile();
+          set({ profile });
+        } catch (error: any) {
+          const errorMsg =
+            error?.response?.data?.message ||
+            error?.message ||
+            "Failed to mark incident as resolved";
           set({ error: errorMsg });
           throw error;
         }

@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import useDashboardStore from "../store/dashboardStore";
+import useUIStore from "../store/uiStore";
 import { StationQueueIncident } from "../types";
 
 interface StationQueueProps {
@@ -30,6 +31,7 @@ const categoryColors: Record<string, string> = {
 
 export function StationQueue({ queue, isLoading }: StationQueueProps) {
   const { claim } = useDashboardStore();
+  const { highlightedIncidentId } = useUIStore();
   const [claimingId, setClaimingId] = useState<string | null>(null);
 
   const handleClaim = async (incidentId: string) => {
@@ -70,7 +72,14 @@ export function StationQueue({ queue, isLoading }: StationQueueProps) {
         </TableHeader>
         <TableBody>
           {queue.map((incident) => (
-            <TableRow key={incident.id}>
+            <TableRow
+              key={incident.id}
+              className={
+                highlightedIncidentId === incident.id
+                  ? "bg-amber-50 ring-2 ring-amber-300"
+                  : ""
+              }
+            >
               <TableCell>
                 <Badge className={categoryColors[incident.category]}>
                   {incident.category}

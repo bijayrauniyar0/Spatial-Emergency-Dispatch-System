@@ -322,11 +322,11 @@ export const getMyResponderProfile = async (
       return;
     }
 
-    // Check if responder has an active task (check for RESPONDING status)
+    // Check if responder has an active task (check for RESPONDING or ARRIVED status)
     const activeTask = await Incident.findOne({
       where: {
         responder_id: responder.id,
-        status: 'RESPONDING',
+        status: ['RESPONDING', 'ARRIVED'],
       },
     });
 

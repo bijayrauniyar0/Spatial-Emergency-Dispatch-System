@@ -3,12 +3,16 @@
 import { useEffect, useRef } from "react";
 import useAuthStore from "@/store/auth";
 import useDashboardStore from "@/features/responder/store/dashboardStore";
+import { useResponderStream } from "@/features/responder/hooks/useResponderStream";
 
 export function ResponderInitializer() {
   const { userProfile, isAuthenticated, isAuthLoading } = useAuthStore();
   const { fetchAll, fetchProfile, fetchMyTask, profile } = useDashboardStore();
   const intervalIdRef = useRef<NodeJS.Timeout | null>(null);
   const visibilityListenerRef = useRef<(() => void) | null>(null);
+
+  // Mount responder SSE stream
+  useResponderStream();
 
   // Initial fetch: get profile on mount
   useEffect(() => {
