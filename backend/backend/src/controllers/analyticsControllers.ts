@@ -17,8 +17,6 @@ export const getAnalytics = async (
     const fromDate = from ? new Date(from) : new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
     const toDate = to ? new Date(to) : new Date();
 
-    const dateFilter = `created_at >= '${fromDate.toISOString()}' AND created_at <= '${toDate.toISOString()}'`;
-
     const summaryResults = await sequelize.query(
       `SELECT
         COUNT(*) as total_incidents,
@@ -26,8 +24,11 @@ export const getAnalytics = async (
         ROUND(AVG(EXTRACT(EPOCH FROM (accepted_at - created_at))))::INTEGER as avg_dispatch_seconds,
         ROUND(AVG(EXTRACT(EPOCH FROM (updated_at - created_at))))::INTEGER as avg_resolution_seconds
       FROM incidents
-      WHERE ${dateFilter}`,
-      { type: QueryTypes.SELECT },
+      WHERE created_at >= :fromDate AND created_at <= :toDate`,
+      {
+        replacements: { fromDate, toDate },
+        type: QueryTypes.SELECT
+      },
     );
 
     const summary = summaryResults.length > 0 ? summaryResults[0] : {};
@@ -37,10 +38,13 @@ export const getAnalytics = async (
         DATE(created_at) as date,
         COUNT(*) as count
       FROM incidents
-      WHERE ${dateFilter}
+      WHERE created_at >= :fromDate AND created_at <= :toDate
       GROUP BY DATE(created_at)
       ORDER BY DATE(created_at) ASC`,
-      { type: QueryTypes.SELECT },
+      {
+        replacements: { fromDate, toDate },
+        type: QueryTypes.SELECT
+      },
     );
 
     const byCategory = await sequelize.query(
@@ -48,10 +52,13 @@ export const getAnalytics = async (
         category,
         COUNT(*) as count
       FROM incidents
-      WHERE ${dateFilter}
+      WHERE created_at >= :fromDate AND created_at <= :toDate
       GROUP BY category
       ORDER BY count DESC`,
-      { type: QueryTypes.SELECT },
+      {
+        replacements: { fromDate, toDate },
+        type: QueryTypes.SELECT
+      },
     );
 
     const byStation = await sequelize.query(
@@ -61,10 +68,13 @@ export const getAnalytics = async (
         COUNT(i.id) as count,
         ROUND(AVG(EXTRACT(EPOCH FROM (i.updated_at - i.created_at))))::INTEGER as avg_resolution_seconds
       FROM stations s
-      LEFT JOIN incidents i ON s.id = i.station_id AND ${dateFilter}
+      LEFT JOIN incidents i ON s.id = i.station_id AND i.created_at >= :fromDate AND i.created_at <= :toDate
       GROUP BY s.id, s.name
       ORDER BY count DESC`,
-      { type: QueryTypes.SELECT },
+      {
+        replacements: { fromDate, toDate },
+        type: QueryTypes.SELECT
+      },
     );
 
     const byResponder = await sequelize.query(
@@ -76,10 +86,13 @@ export const getAnalytics = async (
         ROUND(AVG(EXTRACT(EPOCH FROM (i.updated_at - i.created_at))))::INTEGER as avg_resolution_seconds
       FROM responders r
       JOIN users u ON r.user_id = u.id
-      LEFT JOIN incidents i ON r.id = i.responder_id AND ${dateFilter}
+      LEFT JOIN incidents i ON r.id = i.responder_id AND i.created_at >= :fromDate AND i.created_at <= :toDate
       GROUP BY r.id, u.email
       ORDER BY claimed DESC`,
-      { type: QueryTypes.SELECT },
+      {
+        replacements: { fromDate, toDate },
+        type: QueryTypes.SELECT
+      },
     );
 
     res.json({
