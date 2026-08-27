@@ -14,7 +14,7 @@ export const getAnalytics = async (
   try {
     const { from, to } = req.query as AnalyticsFilters;
 
-    const fromDate = from ? new Date(from) : new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const fromDate = from ? new Date(from) : new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
     const toDate = to ? new Date(to) : new Date();
 
     const dateFilter = `created_at >= '${fromDate.toISOString()}' AND created_at <= '${toDate.toISOString()}'`;
