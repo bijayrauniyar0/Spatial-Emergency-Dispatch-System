@@ -76,10 +76,10 @@ A real-time spatial emergency dispatch platform that connects citizens in need w
 - **Route Visualization**: Responder's live route rendered on both citizen/responder maps as dynamically-updated GeoJSON LineStrings via existing VectorLayer component
 - **Distance Monitoring**: Real-time distance + ETA stats displayed on client maps, recalculated on meaningful location updates (debounced to avoid per-SSE-tick recomputation)
 
-#### Step 5: Completion & History (Future)
-- **Incident History**: Past incidents viewable by admins/responders, searchable by date/category/responder
-- **Feedback / Rating**: Citizens can rate responders post-completion
-- **Analytics Dashboard**: Admin dashboard showing response times, incident distribution, responder performance
+#### Step 5: Completion & History (Future — Optional Enhancement)
+- **Incident History**: Past incidents viewable by admins/responders, searchable by date/category/responder (optional)
+- **Feedback / Rating**: Citizens can rate responders post-completion (optional)
+- **Analytics Dashboard**: Admin dashboard showing response times, incident distribution, responder performance (deferred — not required for MVP)
 
 ---
 
