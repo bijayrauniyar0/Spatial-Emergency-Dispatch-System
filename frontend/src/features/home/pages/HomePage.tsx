@@ -2,6 +2,8 @@
 
 import MapComponent from "@/components/common/Map";
 import { EmergencyButton } from "@/features/incident/components/EmergencyButton";
+import { ResponderLocationLayer } from "@/features/incident/components/ResponderLocationLayer";
+import { TaskRouteLayer } from "@/features/responder/components/TaskRouteLayer";
 import { IncidentRadarLayer } from "@/features/responder/components/IncidentRadarLayer";
 
 import { ChipsFilter } from "../components/ChipsFilter";
@@ -22,6 +24,8 @@ export const HomePage: React.FC = () => {
         <StationsLayer />
         <UserLocation />
         <IncidentRadarLayer />
+        <ResponderLocationLayer />
+        <TaskRouteLayer />
       </MapComponent>
     </div>
   );

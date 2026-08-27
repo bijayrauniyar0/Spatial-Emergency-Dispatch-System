@@ -15,15 +15,29 @@ import useAuthStore from "@/store/auth";
 import { useActiveIncident } from "../hooks/useActiveIncident";
 import { useIncidentStream } from "../hooks/useIncidentStream";
 import { useCitizenLocationBroadcaster } from "../hooks/useCitizenLocationBroadcaster";
+import { useIncidentStore } from "../store/incidentStore";
+import { computeRoute } from "@/lib/pathfinding/astar";
 import { EmergencyRequestForm } from "./EmergencyRequestForm";
 
 export const EmergencyButton: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [shareLocationEnabled, setShareLocationEnabled] = useState(false);
   const { activeIncident } = useActiveIncident();
+  const { responderLocation } = useIncidentStore();
   useIncidentStream();
   useCitizenLocationBroadcaster(shareLocationEnabled);
   const { userProfile } = useAuthStore();
+
+  // Compute distance/ETA when responder location is available
+  const distanceEta = responderLocation &&
+    activeIncident &&
+    activeIncident.location &&
+    (activeIncident.status === "RESPONDING" || activeIncident.status === "ARRIVED")
+    ? computeRoute(
+        [responderLocation.lng, responderLocation.lat],
+        [activeIncident.location.coordinates[0], activeIncident.location.coordinates[1]]
+      )
+    : null;
 
   // Only show button for citizens (including unauthenticated users)
   if (userProfile?.role === "admin" || userProfile?.role === "responder") {
@@ -127,6 +141,22 @@ export const EmergencyButton: React.FC = () => {
                             activeIncident.accepted_at,
                           ).toLocaleString()}
                         </p>
+                      </div>
+                    )}
+                    {distanceEta && (
+                      <div className="border-t pt-3 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <p className="text-muted-foreground text-xs">Distance</p>
+                          <p className="font-semibold">
+                            {(distanceEta.distanceMeters / 1000).toFixed(1)} km
+                          </p>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <p className="text-muted-foreground text-xs">ETA</p>
+                          <p className="font-semibold">
+                            {Math.round(distanceEta.etaSeconds / 60)} min
+                          </p>
+                        </div>
                       </div>
                     )}
                     <div className="border-t pt-3 flex items-center justify-between">
