@@ -2,8 +2,7 @@
 
 import { LogOut } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import {
@@ -15,6 +14,7 @@ import {
 } from "@/components/primitives/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { FlexRow } from "@/components/ui/layouts";
+import { authResource } from "@/features/auth/services";
 import useAuthStore from "@/store/auth";
 
 export default function Navbar() {
@@ -27,26 +27,22 @@ export default function Navbar() {
 
   const isHomePage = pathname === "/";
 
-  const handleLogout = async () => {
-    try {
-      const response = await fetch("/api/v1/auth/log-out/", {
-        method: "POST",
-        credentials: "include",
-      });
-
-      if (response.ok) {
+  const { mutate: handleLogout } = authResource.useApiMutation({
+    pathKey: "logoutUser",
+    method: "post",
+    options: {
+      onSuccess: () => {
         clearUserProfile();
         setIsAuthenticated(false);
         toast.success("Logged out successfully");
         router.push("/login");
-      } else {
+      },
+      onError: (error: any) => {
         toast.error("Failed to logout");
-      }
-    } catch (error) {
-      toast.error("Logout failed");
-      console.error("Logout error:", error);
-    }
-  };
+        console.error("Logout error:", error);
+      },
+    },
+  });
 
   return (
     <nav
@@ -91,7 +87,7 @@ export default function Navbar() {
                   <Link href="/profile">My Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout}>
+                <DropdownMenuItem onClick={() => handleLogout({})}>
                   <LogOut className="mr-2 h-4 w-4" />
                   Logout
                 </DropdownMenuItem>
