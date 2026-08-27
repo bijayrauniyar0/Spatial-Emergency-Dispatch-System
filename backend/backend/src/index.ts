@@ -19,12 +19,16 @@ async function init() {
       try {
         await connectRedis();
       } catch (err) {
-        console.error('Socket error:', err);
+        console.error('Redis connection error:', err);
+        console.error('⚠️ Server starting without Redis. SSE publishing will fail!');
       }
-      httpServer.listen(Number(PORT) || 9000, '0.0.0.0', () => {});
+      httpServer.listen(Number(PORT) || 9000, '0.0.0.0', () => {
+        console.log(`✓ Server running on port ${Number(PORT) || 9000}`);
+      });
     })
     .catch(err => {
       console.error('Unable to connect to the database:', err);
+      process.exit(1);
     });
 }
 
