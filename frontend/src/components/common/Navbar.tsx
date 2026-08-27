@@ -22,6 +22,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const userProfile = useAuthStore((state) => state.userProfile);
+  const clearUserProfile = useAuthStore((state) => state.clearUserProfile);
+  const setIsAuthenticated = useAuthStore((state) => state.setIsAuthenticated);
 
   const isHomePage = pathname === "/";
 
@@ -33,6 +35,8 @@ export default function Navbar() {
       });
 
       if (response.ok) {
+        clearUserProfile();
+        setIsAuthenticated(false);
         toast.success("Logged out successfully");
         router.push("/login");
       } else {

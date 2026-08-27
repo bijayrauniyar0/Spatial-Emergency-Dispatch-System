@@ -248,7 +248,7 @@ export const logoutController = async (
     res.clearCookie('token', {
       httpOnly: true,
       secure: NODE_ENV === 'production',
-      sameSite: 'lax',
+      sameSite: 'strict',
     });
     res.status(200).json({ message: 'Logout successful' });
   } catch (error) {
