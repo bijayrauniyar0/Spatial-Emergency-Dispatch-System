@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import useAuthStore from "@/store/auth";
 import useDashboardStore from "@/features/responder/store/dashboardStore";
 import { useResponderStream } from "@/features/responder/hooks/useResponderStream";
+import { useLocationBroadcaster } from "@/features/responder/hooks/useLocationBroadcaster";
 
 export function ResponderInitializer() {
   const { userProfile, isAuthenticated, isAuthLoading } = useAuthStore();
@@ -11,8 +12,9 @@ export function ResponderInitializer() {
   const intervalIdRef = useRef<NodeJS.Timeout | null>(null);
   const visibilityListenerRef = useRef<(() => void) | null>(null);
 
-  // Mount responder SSE stream
+  // Mount responder SSE stream and location broadcaster
   useResponderStream();
+  useLocationBroadcaster();
 
   // Initial fetch: get profile on mount
   useEffect(() => {

@@ -797,6 +797,108 @@ export const getIncidentById = async (
   }
 };
 
+export const updateCitizenLocation = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const { latitude, longitude } = req.body;
+
+    if (latitude === undefined || longitude === undefined) {
+      res.status(400).json({
+        error: 'Missing required fields: latitude, longitude',
+      });
+      return;
+    }
+
+    if (isNaN(latitude) || isNaN(longitude)) {
+      res.status(400).json({
+        error: 'Latitude and longitude must be valid numeric values',
+      });
+      return;
+    }
+
+    if (latitude < -90 || latitude > 90) {
+      res.status(400).json({
+        error: 'Latitude must be between -90 and 90',
+      });
+      return;
+    }
+
+    if (longitude < -180 || longitude > 180) {
+      res.status(400).json({
+        error: 'Longitude must be between -180 and 180',
+      });
+      return;
+    }
+
+    // Fetch incident
+    const incident = await Incident.findByPk(id);
+
+    if (!incident) {
+      res.status(404).json({
+        error: 'Incident not found',
+      });
+      return;
+    }
+
+    // Validate citizen ownership
+    if (req.user && incident.citizen_id !== req.user.id) {
+      res.status(403).json({
+        error: 'You do not have permission to update this incident location',
+      });
+      return;
+    }
+
+    // Validate incident is not resolved
+    if (incident.status === 'RESOLVED') {
+      res.status(409).json({
+        error: 'Cannot update location for resolved incidents',
+      });
+      return;
+    }
+
+    // Update incident location
+    incident.location = {
+      type: 'Point',
+      coordinates: [longitude, latitude],
+    };
+    await incident.save();
+
+    // Publish update to responder's station
+    const { publishStationIncidentUpdate } = await import('../services/sseService');
+    publishStationIncidentUpdate(incident.station_id, {
+      type: 'incident_location_updated',
+      incidentId: id,
+      latitude,
+      longitude,
+    });
+
+    res.status(200).json({
+      message: 'Citizen location updated successfully',
+      data: {
+        latitude,
+        longitude,
+        updated_at: incident.updated_at,
+      },
+    });
+  } catch (error) {
+    console.error('Error updating citizen location:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};
+
 export const streamStationIncidents = async (
   req: Request,
   res: Response,

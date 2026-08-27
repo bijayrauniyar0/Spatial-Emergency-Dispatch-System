@@ -18,4 +18,11 @@ export const incidentClient = {
     }>("/incidents/my-request");
     return response.data.data;
   },
+
+  async updateCitizenLocation(incidentId: number, latitude: number, longitude: number): Promise<void> {
+    await api.patch(`/incidents/${incidentId}/citizen-location`, {
+      latitude,
+      longitude,
+    });
+  },
 };

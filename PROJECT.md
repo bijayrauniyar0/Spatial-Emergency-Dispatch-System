@@ -69,12 +69,12 @@ A real-time spatial emergency dispatch platform that connects citizens in need w
 - [ ] **Polling Fallback**: Disable SSE endpoint → polling still catches up within 5s on both sides
 - [ ] **Redis Cleanup**: Open/close SSE connections → no duplicate Redis clients (check `CLIENT LIST`)
 
-#### Step 4: Live Location Tracking (Future)
-- **Responder Location Broadcast**: Responder's live location streamed to the citizen (WebSocket or frequent SSE updates)
-- **Citizen Location Sharing**: Citizen's location shareable with assigned responder
-- **ETA Calculation**: A* pathfinding algorithm for optimal route distance calculation and real-time ETA estimation
-- **Route Visualization**: Show responder's movement toward the incident on the map using A* computed paths
-- **Distance Monitoring**: Real-time distance tracking between responder and incident location using A* heuristic updates
+#### Step 4: Live Location Tracking (In Development)
+- **Responder Location Broadcast**: Responder's live location streamed to citizen via SSE (extends existing `GET /incidents/stream`; uses `watchPosition` + throttled PATCH with row validation)
+- **Citizen Location Sharing**: Citizen's location shareable with assigned responder (toggle in UI, opt-in for privacy; broadcasts via `PATCH /incidents/:id/citizen-location`)
+- **ETA Calculation**: Grid-based A* pathfinding for distance/ETA (grid overlay with adaptive resolution, haversine cost, uniform-cost search approximating great-circle paths; not real road routing, but extensible to weighted costs)
+- **Route Visualization**: Responder's live route rendered on both citizen/responder maps as dynamically-updated GeoJSON LineStrings via existing VectorLayer component
+- **Distance Monitoring**: Real-time distance + ETA stats displayed on client maps, recalculated on meaningful location updates (debounced to avoid per-SSE-tick recomputation)
 
 #### Step 5: Completion & History (Future)
 - **Incident History**: Past incidents viewable by admins/responders, searchable by date/category/responder

@@ -14,12 +14,15 @@ import useAuthStore from "@/store/auth";
 
 import { useActiveIncident } from "../hooks/useActiveIncident";
 import { useIncidentStream } from "../hooks/useIncidentStream";
+import { useCitizenLocationBroadcaster } from "../hooks/useCitizenLocationBroadcaster";
 import { EmergencyRequestForm } from "./EmergencyRequestForm";
 
 export const EmergencyButton: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [shareLocationEnabled, setShareLocationEnabled] = useState(false);
   const { activeIncident } = useActiveIncident();
   useIncidentStream();
+  useCitizenLocationBroadcaster(shareLocationEnabled);
   const { userProfile } = useAuthStore();
 
   // Only show button for citizens (including unauthenticated users)
@@ -126,6 +129,17 @@ export const EmergencyButton: React.FC = () => {
                         </p>
                       </div>
                     )}
+                    <div className="border-t pt-3 flex items-center justify-between">
+                      <label className="text-xs text-muted-foreground">
+                        Share live location
+                      </label>
+                      <input
+                        type="checkbox"
+                        checked={shareLocationEnabled}
+                        onChange={(e) => setShareLocationEnabled(e.target.checked)}
+                        className="cursor-pointer"
+                      />
+                    </div>
                   </>
                 )}
             </div>

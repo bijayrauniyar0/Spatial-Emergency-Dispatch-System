@@ -9,6 +9,7 @@ import {
   arriveIncident,
   resolveIncident,
   getIncidentById,
+  updateCitizenLocation,
   streamCitizenIncident,
   streamStationIncidents,
 } from '../controllers/incidentControllers';
@@ -26,6 +27,7 @@ incidentRouter.get('/my-task', authenticate, isResponder, getMyTask);
 incidentRouter.patch('/:id/claim', authenticate, isResponder, claimIncident);
 incidentRouter.patch('/:id/arrive', authenticate, isResponder, arriveIncident);
 incidentRouter.patch('/:id/resolve', authenticate, isResponder, resolveIncident);
+incidentRouter.patch('/:id/citizen-location', maybeAuthenticate, updateCitizenLocation);
 incidentRouter.get('/:id', authenticate, isResponder, getIncidentById);
 
 export default incidentRouter;

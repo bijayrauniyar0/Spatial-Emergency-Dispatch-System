@@ -8,10 +8,18 @@ import {
   IncidentStoreState,
 } from "../types";
 
-export const useIncidentStore = create<IncidentStoreState>((set) => ({
+interface IncidentStoreWithLocation extends IncidentStoreState {
+  responderLocation: { lat: number; lng: number } | null;
+  setResponderLocation: (location: { lat: number; lng: number } | null) => void;
+}
+
+export const useIncidentStore = create<IncidentStoreWithLocation>((set) => ({
   activeIncident: null,
   isLoading: false,
   error: null,
+  responderLocation: null,
+
+  setResponderLocation: (location) => set({ responderLocation: location }),
 
   fetchActiveIncident: async () => {
     set({ isLoading: true, error: null });

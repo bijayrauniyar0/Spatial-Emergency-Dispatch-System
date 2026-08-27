@@ -57,4 +57,11 @@ export const responderDashboardClient = {
     }>(`/incidents/${incidentId}`);
     return response.data.data;
   },
+
+  async updateMyLocation(latitude: number, longitude: number): Promise<void> {
+    await api.patch("/responders/me/location", {
+      latitude,
+      longitude,
+    });
+  },
 };

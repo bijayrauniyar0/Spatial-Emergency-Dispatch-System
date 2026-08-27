@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useIncidentStore } from "../store/incidentStore";
 
 export const useIncidentStream = () => {
-  const { activeIncident, fetchActiveIncident } = useIncidentStore();
+  const { activeIncident, fetchActiveIncident, setResponderLocation } = useIncidentStore();
   const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -59,9 +59,21 @@ export const useIncidentStream = () => {
         stopPolling();
       };
 
-      const handleMessage = () => {
-        // On any message, refetch the active incident to get latest status
-        fetchActiveIncident();
+      const handleMessage = (event: MessageEvent) => {
+        try {
+          const message = JSON.parse(event.data);
+
+          if (message.type === "responder_location") {
+            // High-frequency location update: don't refetch, just update store
+            setResponderLocation({ lat: message.latitude, lng: message.longitude });
+          } else {
+            // Status changes or other events: refetch incident
+            fetchActiveIncident();
+          }
+        } catch (error) {
+          console.error("Error parsing SSE message:", error);
+          fetchActiveIncident();
+        }
       };
 
       const handleError = () => {

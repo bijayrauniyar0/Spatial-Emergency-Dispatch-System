@@ -354,3 +354,105 @@ export const getMyResponderProfile = async (
     }
   }
 };
+
+export const updateMyLocation = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const { latitude, longitude } = req.body;
+
+    if (latitude === undefined || longitude === undefined) {
+      res.status(400).json({
+        error: 'Missing required fields: latitude, longitude',
+      });
+      return;
+    }
+
+    if (isNaN(latitude) || isNaN(longitude)) {
+      res.status(400).json({
+        error: 'Latitude and longitude must be valid numeric values',
+      });
+      return;
+    }
+
+    if (latitude < -90 || latitude > 90) {
+      res.status(400).json({
+        error: 'Latitude must be between -90 and 90',
+      });
+      return;
+    }
+
+    if (longitude < -180 || longitude > 180) {
+      res.status(400).json({
+        error: 'Longitude must be between -180 and 180',
+      });
+      return;
+    }
+
+    // Find responder
+    const responder = await Responder.findOne({
+      where: { user_id: req.user.id },
+    });
+
+    if (!responder) {
+      res.status(404).json({
+        error: 'Responder profile not found. Please contact admin.',
+      });
+      return;
+    }
+
+    // Check responder has an active task (RESPONDING or ARRIVED)
+    const activeTask = await Incident.findOne({
+      where: {
+        responder_id: responder.id,
+        status: ['RESPONDING', 'ARRIVED'],
+      },
+    });
+
+    if (!activeTask) {
+      res.status(409).json({
+        error: 'No active task. Location tracking only available during active incident response.',
+      });
+      return;
+    }
+
+    // Update responder location
+    responder.location = {
+      type: 'Point',
+      coordinates: [longitude, latitude],
+    };
+    responder.location_updated_at = new Date();
+    await responder.save();
+
+    // Publish location update to citizen
+    const { publishCitizenIncidentUpdate } = await import('../services/sseService');
+    publishCitizenIncidentUpdate(activeTask.citizen_id, {
+      type: 'responder_location',
+      latitude,
+      longitude,
+    });
+
+    res.status(200).json({
+      message: 'Location updated successfully',
+      data: {
+        latitude,
+        longitude,
+        updated_at: responder.location_updated_at,
+      },
+    });
+  } catch (error) {
+    console.error('Error updating location:', error);
+
+    if (error instanceof Error) {
+      res.status(500).json({
+        error: 'Internal server error',
+        message: error.message,
+      });
+    } else {
+      res.status(500).json({
+        error: 'Internal server error',
+      });
+    }
+  }
+};

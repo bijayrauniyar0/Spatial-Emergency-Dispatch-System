@@ -9,6 +9,11 @@ class Responder extends Model {
   public user_id!: ForeignKey<User['id']>;
   public station_id!: ForeignKey<Station['id']>;
   public status!: 'AVAILABLE' | 'BUSY' | 'OFF_DUTY';
+  public location?: {
+    type: 'Point';
+    coordinates: [number, number];
+  } | null;
+  public location_updated_at?: Date | null;
   public created_at!: Date;
   public updated_at!: Date;
 }
@@ -42,6 +47,14 @@ Responder.init(
       type: DataTypes.ENUM('AVAILABLE', 'BUSY', 'OFF_DUTY'),
       allowNull: false,
       defaultValue: 'AVAILABLE',
+    },
+    location: {
+      type: DataTypes.GEOMETRY('Point', 4326),
+      allowNull: true,
+    },
+    location_updated_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
   },
   {
