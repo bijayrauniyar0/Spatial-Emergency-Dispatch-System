@@ -25,7 +25,7 @@ const getRandomStatus = (): 'PENDING' | 'RESPONDING' | 'ARRIVED' | 'RESOLVED' =>
   return 'RESOLVED';
 };
 
-const getRandomDate = (daysAgo: number = 30): Date => {
+const getRandomDate = (daysAgo: number = 90): Date => {
   const now = new Date();
   const pastDate = new Date(now.getTime() - Math.random() * daysAgo * 24 * 60 * 60 * 1000);
   return pastDate;
@@ -95,7 +95,7 @@ const seedIncidents = async () => {
         const citizen = citizenIds[Math.floor(Math.random() * citizenIds.length)];
         const category = station.category as 'POLICE' | 'FIRE' | 'MEDICAL';
         const status = getRandomStatus();
-        const createdAt = getRandomDate(30);
+        const createdAt = getRandomDate(90);
 
         // Generate realistic times based on status
         let acceptedAt: Date | null = null;

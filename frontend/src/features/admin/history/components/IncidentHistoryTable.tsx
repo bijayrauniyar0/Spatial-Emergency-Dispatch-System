@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/primitives/badge";
 import { Button } from "@/components/primitives/button";
+
 import { IncidentHistoryItem } from "../types";
 
 interface IncidentHistoryTableProps {
@@ -41,7 +42,7 @@ export const IncidentHistoryTable: React.FC<IncidentHistoryTableProps> = ({
       <div className="rounded-lg border bg-white p-6">
         <div className="space-y-3">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-12 bg-muted animate-pulse rounded" />
+            <div key={i} className="bg-muted h-12 animate-pulse rounded" />
           ))}
         </div>
       </div>
@@ -57,36 +58,38 @@ export const IncidentHistoryTable: React.FC<IncidentHistoryTableProps> = ({
   }
 
   return (
-    <div className="rounded-lg border bg-white overflow-hidden">
-      <div className="overflow-x-auto">
+    <div className="overflow-hidden rounded-lg border bg-white">
+      <div className="max-h-[calc(100dvh-14rem)] overflow-x-auto overflow-y-auto">
         <table className="w-full text-sm">
-          <thead className="bg-gray-50 border-b">
+          <thead className="border-b bg-gray-50">
             <tr>
-              <th className="text-left py-3 px-4 font-semibold">ID</th>
-              <th className="text-left py-3 px-4 font-semibold">Category</th>
-              <th className="text-left py-3 px-4 font-semibold">Status</th>
-              <th className="text-left py-3 px-4 font-semibold">Station</th>
-              <th className="text-left py-3 px-4 font-semibold">Responder</th>
-              <th className="text-left py-3 px-4 font-semibold">Created</th>
+              <th className="px-4 py-3 text-left font-semibold">ID</th>
+              <th className="px-4 py-3 text-left font-semibold">Category</th>
+              <th className="px-4 py-3 text-left font-semibold">Status</th>
+              <th className="px-4 py-3 text-left font-semibold">Station</th>
+              <th className="px-4 py-3 text-left font-semibold">Responder</th>
+              <th className="px-4 py-3 text-left font-semibold">Created</th>
             </tr>
           </thead>
           <tbody>
             {incidents.map((incident) => (
               <tr key={incident.id} className="border-b hover:bg-gray-50">
-                <td className="py-3 px-4">#{incident.id}</td>
-                <td className="py-3 px-4">
+                <td className="px-4 py-3">#{incident.id}</td>
+                <td className="px-4 py-3">
                   <Badge className={categoryColors[incident.category]}>
                     {incident.category}
                   </Badge>
                 </td>
-                <td className="py-3 px-4">
-                  <Badge className={statusColors[incident.status]}>{incident.status}</Badge>
+                <td className="px-4 py-3">
+                  <Badge className={statusColors[incident.status]}>
+                    {incident.status}
+                  </Badge>
                 </td>
-                <td className="py-3 px-4">{incident.station?.name || "N/A"}</td>
-                <td className="py-3 px-4">
+                <td className="px-4 py-3">{incident.station?.name || "N/A"}</td>
+                <td className="px-4 py-3">
                   {incident.responder?.user?.email || "Unclaimed"}
                 </td>
-                <td className="py-3 px-4 text-xs text-gray-500">
+                <td className="px-4 py-3 text-xs text-gray-500">
                   {formatDate(incident.created_at)}
                 </td>
               </tr>
@@ -95,7 +98,7 @@ export const IncidentHistoryTable: React.FC<IncidentHistoryTableProps> = ({
         </table>
       </div>
 
-      <div className="flex items-center justify-between bg-gray-50 px-4 py-3 border-t">
+      <div className="flex items-center justify-between border-t bg-gray-50 px-4 py-3">
         <p className="text-sm text-gray-600">
           Page {currentPage} of {totalPages}
         </p>
