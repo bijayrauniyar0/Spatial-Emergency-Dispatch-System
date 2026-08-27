@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { QueryTypes } from 'sequelize';
+import { QueryTypes, Op } from 'sequelize';
 import sequelize from '../config/database';
 import Incident from '../models/incidentModel';
 import Station from '../models/stationModels';
@@ -1067,5 +1067,75 @@ export const getMyCitizenRequest = async (
         error: 'Internal server error',
       });
     }
+  }
+};
+
+export const getIncidentHistory = async (
+  req: Request,
+  res: Response,
+): Promise<void> => {
+  try {
+    const {
+      status,
+      category,
+      station_id,
+      responder_id,
+      from,
+      to,
+      page = '1',
+      limit = '20',
+    } = req.query;
+
+    const whereClause: any = {};
+    if (status) whereClause.status = status;
+    if (category) whereClause.category = category;
+    if (station_id) whereClause.station_id = station_id;
+    if (responder_id) whereClause.responder_id = responder_id;
+
+    if (from || to) {
+      whereClause.created_at = {};
+      if (from) whereClause.created_at[Op.gte] = new Date(from as string);
+      if (to) whereClause.created_at[Op.lte] = new Date(to as string);
+    }
+
+    const offset = (parseInt(page as string) - 1) * parseInt(limit as string);
+
+    const { count, rows } = await Incident.findAndCountAll({
+      where: whereClause,
+      include: [
+        {
+          model: Station,
+          attributes: ['id', 'name', 'category'],
+        },
+        {
+          model: User,
+          as: 'citizen',
+          attributes: ['id', 'email'],
+        },
+        {
+          model: Responder,
+          attributes: ['id'],
+          include: [
+            {
+              model: User,
+              attributes: ['id', 'email'],
+            },
+          ],
+        },
+      ],
+      order: [['created_at', 'DESC']],
+      offset,
+      limit: parseInt(limit as string),
+    });
+
+    res.json({
+      data: rows,
+      total: count,
+      page: parseInt(page as string),
+      limit: parseInt(limit as string),
+    });
+  } catch (error) {
+    console.error('Incident history fetch error:', error);
+    res.status(500).json({ error: 'Failed to fetch incident history' });
   }
 };

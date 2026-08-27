@@ -69,17 +69,17 @@ A real-time spatial emergency dispatch platform that connects citizens in need w
 - [ ] **Polling Fallback**: Disable SSE endpoint → polling still catches up within 5s on both sides
 - [ ] **Redis Cleanup**: Open/close SSE connections → no duplicate Redis clients (check `CLIENT LIST`)
 
-#### Step 4: Live Location Tracking (In Development)
+#### Step 4: Live Location Tracking (Complete)
 - **Responder Location Broadcast**: Responder's live location streamed to citizen via SSE (extends existing `GET /incidents/stream`; uses `watchPosition` + throttled PATCH with row validation)
 - **Citizen Location Sharing**: Citizen's location shareable with assigned responder (toggle in UI, opt-in for privacy; broadcasts via `PATCH /incidents/:id/citizen-location`)
 - **ETA Calculation**: Grid-based A* pathfinding for distance/ETA (grid overlay with adaptive resolution, haversine cost, uniform-cost search approximating great-circle paths; not real road routing, but extensible to weighted costs)
 - **Route Visualization**: Responder's live route rendered on both citizen/responder maps as dynamically-updated GeoJSON LineStrings via existing VectorLayer component
 - **Distance Monitoring**: Real-time distance + ETA stats displayed on client maps, recalculated on meaningful location updates (debounced to avoid per-SSE-tick recomputation)
 
-#### Step 5: Completion & History (Future — Optional Enhancement)
-- **Incident History**: Past incidents viewable by admins/responders, searchable by date/category/responder (optional)
-- **Feedback / Rating**: Citizens can rate responders post-completion (optional)
-- **Analytics Dashboard**: Admin dashboard showing response times, incident distribution, responder performance (deferred — not required for MVP)
+#### Step 5: Incident History + Analytics Dashboard (Complete)
+- **Incident History**: Past incidents viewable by admins, `GET /admin/incidents` endpoint with pagination and filters (status/category/station/responder/date range), frontend table with sortable data
+- **Analytics Dashboard**: Admin dashboard showing key metrics (total incidents, active incidents, avg dispatch/resolution times), incident volume trends (line chart), category distribution (pie chart), per-station and per-responder performance metrics (tables)
+- **Feedback / Rating**: Citizens can rate responders post-completion (deferred for future — requires new data model and citizen-facing UI)
 
 ---
 
@@ -207,4 +207,4 @@ services:
 ---
 
 **Last Updated**: 2026-08-27  
-**Status**: Steps 1-3 complete; Step 4 code-complete (awaiting manual testing)
+**Status**: Steps 1-5 complete; Ready for integration testing and deployment

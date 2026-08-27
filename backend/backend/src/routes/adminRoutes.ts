@@ -12,6 +12,8 @@ import {
   updateResponder,
   deleteResponder,
 } from '../controllers/responderControllers';
+import { getAnalytics } from '../controllers/analyticsControllers';
+import { getIncidentHistory } from '../controllers/incidentControllers';
 import { authenticate, isAdmin } from '../middlewares/authenticate';
 
 const adminRouter = Express.Router();
@@ -29,5 +31,9 @@ adminRouter.get('/responders', authenticate, isAdmin, getResponders);
 adminRouter.post('/responders', authenticate, isAdmin, createResponder);
 adminRouter.patch('/responders/:id', authenticate, isAdmin, updateResponder);
 adminRouter.delete('/responders/:id', authenticate, isAdmin, deleteResponder);
+
+// Protected analytics endpoints
+adminRouter.get('/analytics', authenticate, isAdmin, getAnalytics);
+adminRouter.get('/incidents', authenticate, isAdmin, getIncidentHistory);
 
 export default adminRouter;

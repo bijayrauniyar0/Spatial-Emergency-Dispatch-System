@@ -1,6 +1,6 @@
 "use client";
 
-import { BarChart3, Home, Users } from "lucide-react";
+import { BarChart3, Home, Users, TrendingUp, History } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -25,6 +25,16 @@ const adminNavItems = [
     label: "Responders",
     href: "/admin/responders/",
     icon: Users,
+  },
+  {
+    label: "Analytics",
+    href: "/admin/analytics/",
+    icon: TrendingUp,
+  },
+  {
+    label: "History",
+    href: "/admin/history/",
+    icon: History,
   },
 ];
 
